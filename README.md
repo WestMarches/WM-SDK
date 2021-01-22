@@ -6,6 +6,7 @@ When you want to update this, update swagger.json to newest and then run the fol
 ``` shell
 npx @openapitools/openapi-generator-cli generate -i swagger.json -g csharp-netcore -o C#
 npx @openapitools/openapi-generator-cli generate -i swagger.json -g javascript -o JS
+npx @openapitools/openapi-generator-cli generate -i swagger.json -g java -o Java
 ```
 This will update the clients.
 
