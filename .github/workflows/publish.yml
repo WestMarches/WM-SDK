@@ -21,10 +21,10 @@ jobs:
          openapi-generator-cli version
      - name: generate
        run: |
-         npx @openapitools/openapi-generator-cli generate -i swagger.json -g javascript -o js
+         npx @openapitools/openapi-generator-cli generate -i swagger.json -g javascript -o javascript
      - name: install and publish
        run: |
-         cd js
+         cd javascript
          cat ./package.json | jq '.scripts.prepack = ["npm install && npm run build"]' > ./package1.json
          cat ./package1.json | jq '.scripts.prepack = ["npm install && npm run build"]' > ./package.json
          npm install
