@@ -1,0 +1,693 @@
+openapi: 3.0.1
+info:
+  description: West Marches API
+  title: WestMarches API
+  version: 1.0.0
+servers:
+- description: Local Development
+  url: http://localhost:5000
+- description: Deployed
+  url: http://api.westmarchesapi.net/
+paths:
+  /api/campaign/{id}:
+    get:
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Campaign'
+          description: Success
+      tags:
+      - Campaign
+      x-accepts: application/json
+    post:
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Campaign'
+      responses:
+        "200":
+          description: Success
+      tags:
+      - Campaign
+      x-contentType: application/json
+      x-accepts: application/json
+    put:
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Campaign'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Campaign'
+          description: Success
+      tags:
+      - Campaign
+      x-contentType: application/json
+      x-accepts: application/json
+  /api/character/{id}:
+    get:
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: int64
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: string
+          description: Success
+      tags:
+      - Character
+      x-accepts: application/json
+  /api/character/my/{id}:
+    get:
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Character'
+                type: array
+          description: Success
+      tags:
+      - Character
+      x-accepts: application/json
+  /api/discord/close:
+    get:
+      operationId: Close Discord Server
+      responses:
+        "200":
+          description: Success
+      tags:
+      - Discord
+      x-accepts: application/json
+  /api/discord/stack:
+    get:
+      operationId: Get incoming for Discord Server
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/IRequest'
+                type: array
+          description: Success
+      tags:
+      - Discord
+      x-accepts: application/json
+  /api/discord/store/{id}:
+    get:
+      operationId: Add Store to Discord Server
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          nullable: true
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Success
+      tags:
+      - Discord
+      x-accepts: application/json
+  /api/registration:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegistrationRequest'
+      responses:
+        "200":
+          description: Success
+      tags:
+      - Registration
+      x-contentType: application/json
+      x-accepts: application/json
+  /api/user/{id}:
+    get:
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+          description: Success
+      tags:
+      - User
+      x-accepts: application/json
+    put:
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+          description: Success
+      tags:
+      - User
+      x-contentType: application/json
+      x-accepts: application/json
+components:
+  schemas:
+    Game_system:
+      enum:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      - 8
+      - 9
+      - 10
+      - 11
+      format: int32
+      type: integer
+    Item:
+      additionalProperties: false
+      example:
+        itemName: itemName
+        currencyValue: 3
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        id:
+          format: uuid
+          type: string
+        homeBrewOrigin:
+          $ref: '#/components/schemas/Campaign'
+        itemName:
+          type: string
+        currencyValue:
+          format: int32
+          type: integer
+        game_System:
+          $ref: '#/components/schemas/Game_system'
+      required:
+      - currencyValue
+      - game_System
+      - itemName
+      type: object
+    Stock:
+      additionalProperties: false
+      example:
+        discountPercentage: 2.3021358869347655
+        amount: 9
+        item:
+          itemName: itemName
+          currencyValue: 3
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        unlimited: true
+        price: 2
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        discountFixed: 7
+      properties:
+        id:
+          format: uuid
+          type: string
+        discountPercentage:
+          format: double
+          type: number
+        discountFixed:
+          format: int32
+          type: integer
+        unlimited:
+          type: boolean
+        amount:
+          format: int32
+          type: integer
+        item:
+          $ref: '#/components/schemas/Item'
+        price:
+          format: int32
+          readOnly: true
+          type: integer
+      required:
+      - discountPercentage
+      type: object
+    UserRoles:
+      additionalProperties: false
+      example:
+        roleName: roleName
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        id:
+          format: uuid
+          type: string
+        user:
+          $ref: '#/components/schemas/User'
+        campaign:
+          $ref: '#/components/schemas/Campaign'
+        roleName:
+          nullable: true
+          type: string
+      type: object
+    Character:
+      additionalProperties: false
+      example:
+        ddBeyond: 4
+        alive: true
+        level: 6
+        roles:
+        - roleName: roleName
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - roleName: roleName
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        format: format
+        experienceCap: 5
+        readyDate: 2000-01-23T04:56:07.000+00:00
+        experience: 5
+        inventory:
+        - discountPercentage: 2.3021358869347655
+          amount: 9
+          item:
+            itemName: itemName
+            currencyValue: 3
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          unlimited: true
+          price: 2
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          discountFixed: 7
+        - discountPercentage: 2.3021358869347655
+          amount: 9
+          item:
+            itemName: itemName
+            currencyValue: 3
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          unlimited: true
+          price: 2
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          discountFixed: 7
+        name: name
+        currency: 1
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        id:
+          format: uuid
+          type: string
+        owner:
+          $ref: '#/components/schemas/User'
+        server:
+          $ref: '#/components/schemas/Campaign'
+        name:
+          type: string
+        level:
+          format: int32
+          type: integer
+        currency:
+          format: int32
+          type: integer
+        format:
+          nullable: true
+          readOnly: true
+          type: string
+        experience:
+          format: int32
+          type: integer
+        experienceCap:
+          format: int32
+          type: integer
+        alive:
+          type: boolean
+        inventory:
+          items:
+            $ref: '#/components/schemas/Stock'
+          nullable: true
+          type: array
+        roles:
+          items:
+            $ref: '#/components/schemas/UserRoles'
+          nullable: true
+          type: array
+        readyDate:
+          format: date-time
+          type: string
+        ddBeyond:
+          format: int64
+          type: integer
+      required:
+      - alive
+      - currency
+      - experience
+      - level
+      - name
+      - readyDate
+      type: object
+    User:
+      additionalProperties: false
+      example:
+        characters:
+        - ddBeyond: 4
+          alive: true
+          level: 6
+          roles:
+          - roleName: roleName
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - roleName: roleName
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          format: format
+          experienceCap: 5
+          readyDate: 2000-01-23T04:56:07.000+00:00
+          experience: 5
+          inventory:
+          - discountPercentage: 2.3021358869347655
+            amount: 9
+            item:
+              itemName: itemName
+              currencyValue: 3
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            unlimited: true
+            price: 2
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            discountFixed: 7
+          - discountPercentage: 2.3021358869347655
+            amount: 9
+            item:
+              itemName: itemName
+              currencyValue: 3
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            unlimited: true
+            price: 2
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            discountFixed: 7
+          name: name
+          currency: 1
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - ddBeyond: 4
+          alive: true
+          level: 6
+          roles:
+          - roleName: roleName
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - roleName: roleName
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          format: format
+          experienceCap: 5
+          readyDate: 2000-01-23T04:56:07.000+00:00
+          experience: 5
+          inventory:
+          - discountPercentage: 2.3021358869347655
+            amount: 9
+            item:
+              itemName: itemName
+              currencyValue: 3
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            unlimited: true
+            price: 2
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            discountFixed: 7
+          - discountPercentage: 2.3021358869347655
+            amount: 9
+            item:
+              itemName: itemName
+              currencyValue: 3
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            unlimited: true
+            price: 2
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            discountFixed: 7
+          name: name
+          currency: 1
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        discordId: 0
+        dateCreated: 2000-01-23T04:56:07.000+00:00
+        campaignsOwned:
+        - null
+        - null
+        givenName: givenName
+        familyName: familyName
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        id:
+          format: uuid
+          type: string
+        discordId:
+          format: int64
+          type: integer
+        givenName:
+          nullable: true
+          type: string
+        familyName:
+          nullable: true
+          type: string
+        dateCreated:
+          format: date-time
+          type: string
+        characters:
+          items:
+            $ref: '#/components/schemas/Character'
+          nullable: true
+          type: array
+        campaignsOwned:
+          items:
+            $ref: '#/components/schemas/Campaign'
+          nullable: true
+          type: array
+      required:
+      - dateCreated
+      type: object
+    Campaign_Status:
+      enum:
+      - 0
+      - 1
+      format: int32
+      type: integer
+    Guild:
+      additionalProperties: false
+      example:
+        discordId: 7
+        storeCategoryName: storeCategoryName
+        guildName: guildName
+      properties:
+        campaign:
+          $ref: '#/components/schemas/Campaign'
+        discordId:
+          format: int64
+          type: integer
+        guildName:
+          type: string
+        storeCategoryName:
+          nullable: true
+          type: string
+      required:
+      - discordId
+      - guildName
+      type: object
+    Campaign:
+      additionalProperties: false
+      example:
+        owner:
+          characters:
+          - ddBeyond: 4
+            alive: true
+            level: 6
+            roles:
+            - roleName: roleName
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - roleName: roleName
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            format: format
+            experienceCap: 5
+            readyDate: 2000-01-23T04:56:07.000+00:00
+            experience: 5
+            inventory:
+            - discountPercentage: 2.3021358869347655
+              amount: 9
+              item:
+                itemName: itemName
+                currencyValue: 3
+                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              unlimited: true
+              price: 2
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              discountFixed: 7
+            - discountPercentage: 2.3021358869347655
+              amount: 9
+              item:
+                itemName: itemName
+                currencyValue: 3
+                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              unlimited: true
+              price: 2
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              discountFixed: 7
+            name: name
+            currency: 1
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - ddBeyond: 4
+            alive: true
+            level: 6
+            roles:
+            - roleName: roleName
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - roleName: roleName
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            format: format
+            experienceCap: 5
+            readyDate: 2000-01-23T04:56:07.000+00:00
+            experience: 5
+            inventory:
+            - discountPercentage: 2.3021358869347655
+              amount: 9
+              item:
+                itemName: itemName
+                currencyValue: 3
+                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              unlimited: true
+              price: 2
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              discountFixed: 7
+            - discountPercentage: 2.3021358869347655
+              amount: 9
+              item:
+                itemName: itemName
+                currencyValue: 3
+                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              unlimited: true
+              price: 2
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              discountFixed: 7
+            name: name
+            currency: 1
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          discordId: 0
+          dateCreated: 2000-01-23T04:56:07.000+00:00
+          campaignsOwned:
+          - null
+          - null
+          givenName: givenName
+          familyName: familyName
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        guild:
+          discordId: 7
+          storeCategoryName: storeCategoryName
+          guildName: guildName
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        title: title
+      properties:
+        id:
+          format: uuid
+          type: string
+        gameSystem:
+          $ref: '#/components/schemas/Game_system'
+        title:
+          type: string
+        owner:
+          $ref: '#/components/schemas/User'
+        status:
+          $ref: '#/components/schemas/Campaign_Status'
+        guild:
+          $ref: '#/components/schemas/Guild'
+      required:
+      - gameSystem
+      - title
+      type: object
+    IRequest:
+      additionalProperties: false
+      type: object
+    RegistrationRequest:
+      additionalProperties: false
+      example:
+        ddBeyondIds:
+        - 6
+        - 6
+        discordId: 0
+        givenName: givenName
+        familyName: familyName
+      properties:
+        discordId:
+          format: int64
+          type: integer
+        givenName:
+          nullable: true
+          type: string
+        familyName:
+          nullable: true
+          type: string
+        ddBeyondIds:
+          items:
+            format: int64
+            type: integer
+          nullable: true
+          type: array
+      type: object
+

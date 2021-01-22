@@ -3,7 +3,7 @@ name: deploy
 on:
   push:
     branches:
-      - master
+      - master/no
 
 jobs:
   Javascript:
@@ -17,14 +17,14 @@ jobs:
      - name: install
        run: |
          npm install -g @openapitools/openapi-generator-cli
-         openapi-generator-cli version-manager set 4.3.1
+         openapi-generator-cli version-manager set 5.0.0
          openapi-generator-cli version
      - name: generate
        run: |
-         npx @openapitools/openapi-generator-cli generate -i swagger.json -g javascript -o javascript
+         npx @openapitools/openapi-generator-cli generate -i swagger.json -g javascript -o JS
      - name: install and publish
        run: |
-         cd javascript
+         cd JS
          cat ./package.json | jq '.scripts.prepack = ["npm install && npm run build"]' > ./package1.json
          cat ./package1.json | jq '.scripts.prepack = ["npm install && npm run build"]' > ./package.json
          npm install
@@ -48,14 +48,14 @@ jobs:
      - name: install
        run: |
          npm install -g @openapitools/openapi-generator-cli
-         openapi-generator-cli version-manager set 4.3.1
+         openapi-generator-cli version-manager set 5.0.0
          openapi-generator-cli version
      - name: generate
        run: |
-         npx @openapitools/openapi-generator-cli generate -i swagger.json -g csharp-netcore -o csharp-netcore
+         npx @openapitools/openapi-generator-cli generate -i swagger.json -g csharp-netcore -o C#
      - name: install and publish
        run: |
-         cd csharp-netcore
+         cd C#
          cd src
          cd Org.OpenAPITools
          ls
