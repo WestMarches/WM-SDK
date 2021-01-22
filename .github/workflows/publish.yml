@@ -60,7 +60,10 @@ jobs:
          cd Org.OpenAPITools
          ls
      - name: Pack with dotnet
-       run: dotnet pack  --configuration Release
+       run: |
+        dotnet restore
+        dotnet build --configuration Release
+        dotnet pack  --configuration Release
      - uses: nuget/setup-nuget@v1
        with:
          nuget-api-key: ${{ secrets.NUGET_API_KEY }}
