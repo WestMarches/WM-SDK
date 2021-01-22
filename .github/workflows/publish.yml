@@ -5,8 +5,8 @@ on:
     branches:
       - master
 
-   Javascript:
-     needs: Deploy
+jobs:
+  Javascript:
      runs-on: ubuntu-latest
      steps:
      - uses: actions/setup-node@v1
