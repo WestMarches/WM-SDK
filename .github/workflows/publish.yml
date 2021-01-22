@@ -52,7 +52,7 @@ jobs:
          openapi-generator-cli version
      - name: generate
        run: |
-         npx @openapitools/openapi-generator-cli generate -i swagger.json -g csharp-netcore -o csharp-netcore -targetFramework netcoreapp3.1
+         npx @openapitools/openapi-generator-cli generate -i swagger.json -g csharp-netcore -o csharp-netcore
      - name: install and publish
        run: |
          cd csharp-netcore
