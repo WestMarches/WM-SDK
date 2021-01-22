@@ -25,5 +25,9 @@ jobs:
      - name: install and publish
        run: |
          cd js
+         cat ./package.json | jq '.scripts.prepack = ["npm install && npm run build"]' > /package1.json
+         cat ./package1.json | jq '.scripts.prepack = ["npm install && npm run build"]' > /package.json
          npm install
          npm publish
+       env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
