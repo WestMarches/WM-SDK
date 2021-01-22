@@ -57,6 +57,7 @@ jobs:
        run: |
          cd csharp-netcore
          cd src
+         cd Org.OpenAPITools
          ls
      - name: Pack with dotnet
        run: dotnet pack  --configuration Release
