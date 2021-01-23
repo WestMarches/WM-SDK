@@ -3,7 +3,7 @@ name: deploy
 on:
   push:
     branches:
-      - master/no
+      - pipeline
 
 jobs:
   Javascript:
@@ -41,18 +41,6 @@ jobs:
        uses: actions/setup-dotnet@v1
        with:
          dotnet-version: 3.1.100
-     - uses: actions/setup-node@v1
-       with:
-         node-version: '12.x'
-         registry-url: 'https://npm.pkg.github.com'
-     - name: install
-       run: |
-         npm install -g @openapitools/openapi-generator-cli
-         openapi-generator-cli version-manager set 5.0.0
-         openapi-generator-cli version
-     - name: generate
-       run: |
-         npx @openapitools/openapi-generator-cli generate -i swagger.json -g csharp-netcore -o C#
      - name: install and publish
        run: |
          cd C#
@@ -68,8 +56,8 @@ jobs:
        with:
          nuget-api-key: ${{ secrets.NUGET_API_KEY }}
          nuget-version: 'latest'
-#     - name: Push package to the Github Package Registry
-#       run: |
-#         nuget sources Add -Name "GPR" -Source "https://nuget.pkg.github.com/WestMarches/index.json" -UserName WestMarches -Password ${{ secrets.GITHUB_TOKEN }}
-#         nuget setApiKey ${{ secrets.NUGET_API_KEY }} -Source "GPR"
-#         nuget push WM-SDK/bin/Release/*.nupkg -Source "GPR" -SkipDuplicate
+     - name: Push package to the Github Package Registry
+       run: |
+         nuget sources Add -Name "GPR" -Source "https://nuget.pkg.github.com/WestMarches/index.json" -UserName WestMarches -Password ${{ secrets.GITHUB_TOKEN }}
+         nuget setApiKey ${{ secrets.NUGET_API_KEY }} -Source "GPR"
+         nuget push WM-SDK/bin/Release/*.nupkg -Source "GPR" -SkipDuplicate
