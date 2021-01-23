@@ -48,7 +48,7 @@ namespace Org.OpenAPITools.Model
         public Campaign(Guid id = default(Guid), GameSystem gameSystem = default(GameSystem), string title = default(string), User owner = default(User), CampaignStatus status = default(CampaignStatus), Guild guild = default(Guild))
         {
             // to ensure "gameSystem" is required (not null)
-            this.GameSystem = gameSystem ?? throw new ArgumentNullException("gameSystem is a required property for Campaign and cannot be null");
+            this.GameSystem = gameSystem;
             // to ensure "title" is required (not null)
             this.Title = title ?? throw new ArgumentNullException("title is a required property for Campaign and cannot be null");
             this.Id = id;
