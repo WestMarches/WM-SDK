@@ -49,9 +49,10 @@ jobs:
          ls
      - name: Pack with dotnet
        run: |
-        dotnet restore Org.OpenAPITools.csproj
-        dotnet build Org.OpenAPITools.csproj --configuration Release
-        dotnet pack  Org.OpenAPITools.csproj --configuration Release
+         ls
+         dotnet restore Org.OpenAPITools.csproj
+         dotnet build Org.OpenAPITools.csproj --configuration Release
+         dotnet pack  Org.OpenAPITools.csproj --configuration Release
      - uses: nuget/setup-nuget@v1
        with:
          nuget-api-key: ${{ secrets.NUGET_API_KEY }}
