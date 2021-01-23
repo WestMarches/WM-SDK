@@ -14,14 +14,14 @@ jobs:
        with:
          node-version: '12.x'
          registry-url: 'https://npm.pkg.github.com'
-     - name: install
-       run: |
-         npm install -g @openapitools/openapi-generator-cli
-         openapi-generator-cli version-manager set 5.0.0
-         openapi-generator-cli version
-     - name: generate
-       run: |
-         npx @openapitools/openapi-generator-cli generate -i swagger.json -g javascript -o JS
+#      - name: install
+#        run: |
+#          npm install -g @openapitools/openapi-generator-cli
+#          openapi-generator-cli version-manager set 5.0.0
+#          openapi-generator-cli version
+#      - name: generate
+#        run: |
+#          npx @openapitools/openapi-generator-cli generate -i swagger.json -g javascript -o JS
      - name: install and publish
        run: |
          cd JS
@@ -31,7 +31,7 @@ jobs:
          npm login --registry=https://npm.pkg.github.com
          npm publish
        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM }}
+          NODE_AUTH_TOKEN: ${{ secrets.PAT }}
 
   C-Sharp:
      runs-on: ubuntu-latest
@@ -55,6 +55,6 @@ jobs:
          nuget-version: 'latest'
      - name: Push package to the Github Package Registry
        run: |
-         nuget sources Add -Name "GPR" -Source "https://nuget.pkg.github.com/WestMarches/index.json" -UserName WestMarches -Password ${{ secrets.GITHUB_TOKEN }}
+         nuget sources Add -Name "GPR" -Source "https://nuget.pkg.github.com/WestMarches/index.json" -UserName brajm008 -Password ${{ secrets.PAT }}
          nuget setApiKey ${{ secrets.NUGET_API_KEY }} -Source "GPR"
          nuget push C#/src/Org.OpenAPITools/bin/Release/*.nupkg -Source "GPR" -SkipDuplicate
