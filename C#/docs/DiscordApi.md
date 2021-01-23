@@ -31,6 +31,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "http://localhost:5000";
+            // Configure API key authorization: Bearer
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+
             var apiInstance = new DiscordApi(config);
             var id = id_example;  // string | 
 
@@ -61,7 +66,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -97,6 +102,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "http://localhost:5000";
+            // Configure API key authorization: Bearer
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+
             var apiInstance = new DiscordApi(config);
 
             try
@@ -123,7 +133,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -159,6 +169,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "http://localhost:5000";
+            // Configure API key authorization: Bearer
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+
             var apiInstance = new DiscordApi(config);
 
             try
@@ -186,7 +201,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 

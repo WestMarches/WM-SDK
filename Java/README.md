@@ -2,7 +2,7 @@
 
 WestMarches API
 - API version: 1.0.0
-  - Build date: 2021-01-22T20:18:22.178+10:30[Australia/Adelaide]
+  - Build date: 2021-01-23T16:58:03.576+10:30[Australia/Adelaide]
 
 West Marches API
 
@@ -76,6 +76,7 @@ Please follow the [installation](#installation) instruction and execute the foll
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.CampaignApi;
 
@@ -83,6 +84,12 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost:5000");
+    
+    // Configure API key authorization: Bearer
+    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
+    Bearer.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer.setApiKeyPrefix("Token");
 
     CampaignApi apiInstance = new CampaignApi(defaultClient);
     UUID id = new UUID(); // UUID | 
@@ -136,8 +143,13 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Authorization
 
-All endpoints do not require authorization.
 Authentication schemes defined for the API:
+### Bearer
+
+- **Type**: API key
+- **API key parameter name**: Authorization
+- **Location**: HTTP header
+
 
 ## Recommendation
 

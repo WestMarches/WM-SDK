@@ -30,7 +30,7 @@ import org.openapitools.client.model.User;
 /**
  * UserRoles
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-01-22T20:18:22.178+10:30[Australia/Adelaide]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-01-23T16:58:03.576+10:30[Australia/Adelaide]")
 public class UserRoles {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)

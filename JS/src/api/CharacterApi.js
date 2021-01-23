@@ -64,7 +64,7 @@ export default class CharacterApi {
       let formParams = {
       };
 
-      let authNames = [];
+      let authNames = ['Bearer'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = 'String';
@@ -105,7 +105,7 @@ export default class CharacterApi {
       let formParams = {
       };
 
-      let authNames = [];
+      let authNames = ['Bearer'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = [Character];

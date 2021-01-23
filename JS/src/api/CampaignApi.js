@@ -64,7 +64,7 @@ export default class CampaignApi {
       let formParams = {
       };
 
-      let authNames = [];
+      let authNames = ['Bearer'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = Campaign;
@@ -107,7 +107,7 @@ export default class CampaignApi {
       let formParams = {
       };
 
-      let authNames = [];
+      let authNames = ['Bearer'];
       let contentTypes = ['application/json'];
       let accepts = [];
       let returnType = null;
@@ -151,7 +151,7 @@ export default class CampaignApi {
       let formParams = {
       };
 
-      let authNames = [];
+      let authNames = ['Bearer'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = Campaign;

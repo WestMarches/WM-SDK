@@ -8,6 +8,8 @@ servers:
   url: http://localhost:5000
 - description: Deployed
   url: http://api.westmarchesapi.net/
+security:
+- Bearer: []
 paths:
   /api/campaign/{id}:
     get:
@@ -690,4 +692,11 @@ components:
           nullable: true
           type: array
       type: object
+  securitySchemes:
+    Bearer:
+      description: 'JWT Authorization header using the Bearer scheme. Example: "Authorization:
+        Bearer {token}"'
+      in: header
+      name: Authorization
+      type: apiKey
 

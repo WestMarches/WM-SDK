@@ -279,6 +279,11 @@ namespace Org.OpenAPITools.Api
 
             localVarRequestOptions.PathParameters.Add("id", Org.OpenAPITools.Client.ClientUtils.ParameterToString(id)); // path parameter
 
+            // authentication (Bearer) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<User>("/api/user/{id}", localVarRequestOptions, this.Configuration);
@@ -334,6 +339,11 @@ namespace Org.OpenAPITools.Api
 
             localVarRequestOptions.PathParameters.Add("id", Org.OpenAPITools.Client.ClientUtils.ParameterToString(id)); // path parameter
 
+            // authentication (Bearer) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
 
             // make the HTTP request
 
@@ -390,6 +400,11 @@ namespace Org.OpenAPITools.Api
             localVarRequestOptions.PathParameters.Add("id", Org.OpenAPITools.Client.ClientUtils.ParameterToString(id)); // path parameter
             localVarRequestOptions.Data = user;
 
+            // authentication (Bearer) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
 
             // make the HTTP request
             var localVarResponse = this.Client.Put<User>("/api/user/{id}", localVarRequestOptions, this.Configuration);
@@ -449,6 +464,11 @@ namespace Org.OpenAPITools.Api
             localVarRequestOptions.PathParameters.Add("id", Org.OpenAPITools.Client.ClientUtils.ParameterToString(id)); // path parameter
             localVarRequestOptions.Data = user;
 
+            // authentication (Bearer) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
 
             // make the HTTP request
 

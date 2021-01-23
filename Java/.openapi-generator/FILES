@@ -1,5 +1,4 @@
 .gitignore
-.openapi-generator-ignore
 .travis.yml
 README.md
 api/openapi.yaml
@@ -61,18 +60,3 @@ src/main/java/org/openapitools/client/model/RegistrationRequest.java
 src/main/java/org/openapitools/client/model/Stock.java
 src/main/java/org/openapitools/client/model/User.java
 src/main/java/org/openapitools/client/model/UserRoles.java
-src/test/java/org/openapitools/client/api/CampaignApiTest.java
-src/test/java/org/openapitools/client/api/CharacterApiTest.java
-src/test/java/org/openapitools/client/api/DiscordApiTest.java
-src/test/java/org/openapitools/client/api/RegistrationApiTest.java
-src/test/java/org/openapitools/client/api/UserApiTest.java
-src/test/java/org/openapitools/client/model/CampaignStatusTest.java
-src/test/java/org/openapitools/client/model/CampaignTest.java
-src/test/java/org/openapitools/client/model/CharacterTest.java
-src/test/java/org/openapitools/client/model/GameSystemTest.java
-src/test/java/org/openapitools/client/model/GuildTest.java
-src/test/java/org/openapitools/client/model/ItemTest.java
-src/test/java/org/openapitools/client/model/RegistrationRequestTest.java
-src/test/java/org/openapitools/client/model/StockTest.java
-src/test/java/org/openapitools/client/model/UserRolesTest.java
-src/test/java/org/openapitools/client/model/UserTest.java
