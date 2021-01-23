@@ -50,7 +50,7 @@ namespace Org.OpenAPITools.Model
             this.ItemName = itemName ?? throw new ArgumentNullException("itemName is a required property for Item and cannot be null");
             this.CurrencyValue = currencyValue;
             // to ensure "gameSystem" is required (not null)
-            this.GameSystem = gameSystem ?? throw new ArgumentNullException("gameSystem is a required property for Item and cannot be null");
+            this.GameSystem = gameSystem;
             this.Id = id;
             this.HomeBrewOrigin = homeBrewOrigin;
         }
