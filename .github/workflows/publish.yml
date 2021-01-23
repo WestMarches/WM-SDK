@@ -57,4 +57,4 @@ jobs:
        run: |
          nuget sources Add -Name "GPR" -Source "https://nuget.pkg.github.com/WestMarches/index.json" -UserName WestMarches -Password ${{ secrets.GITHUB_TOKEN }}
          nuget setApiKey ${{ secrets.NUGET_API_KEY }} -Source "GPR"
-         nuget push WM-SDK/bin/Release/*.nupkg -Source "GPR" -SkipDuplicate
+         nuget push WM-SDK/C#/src/Org.OpenAPITools/bin/Release/*.nupkg -Source "GPR" -SkipDuplicate
