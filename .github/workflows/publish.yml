@@ -46,20 +46,13 @@ jobs:
          cd C#
          cd src
          cd Org.OpenAPITools
-         dotnet restore Org.OpenAPITools.csproj
-         dotnet build Org.OpenAPITools.csproj --configuration Release
-         dotnet pack  Org.OpenAPITools.csproj --configuration Release
+         dotnet restore
+         dotnet build --configuration Release
+         dotnet pack --configuration Release
      - uses: nuget/setup-nuget@v1
        with:
          nuget-api-key: ${{ secrets.NUGET_API_KEY }}
          nuget-version: 'latest'
-     - name: Setup .NET Core 2
-       uses: actions/setup-dotnet@v1
-       with:
-         dotnet-version: 3.1.100
-         source-url: https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json
-       env:
-        NUGET_AUTH_TOKEN: '%NUGET_AUTH_TOKEN%'
      - name: Push package to the Github Package Registry
        run: |
         nuget sources Add -Name "GPR" -Source "https://nuget.pkg.github.com/WestMarches/index.json" -UserName WestMarches -Password ${{ secrets.GITHUB_TOKEN }}
