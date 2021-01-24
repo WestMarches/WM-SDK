@@ -3,7 +3,7 @@ name: deploy
 on:
   push:
     branches:
-      - master/no
+      - pipeline
 
 jobs:
   Javascript:
@@ -14,24 +14,26 @@ jobs:
        with:
          node-version: '12.x'
          registry-url: 'https://npm.pkg.github.com'
-     - name: install
-       run: |
-         npm install -g @openapitools/openapi-generator-cli
-         openapi-generator-cli version-manager set 5.0.0
-         openapi-generator-cli version
-     - name: generate
-       run: |
-         npx @openapitools/openapi-generator-cli generate -i swagger.json -g javascript -o JS
+#      - name: install
+#        run: |
+#          npm install -g @openapitools/openapi-generator-cli
+#          openapi-generator-cli version-manager set 5.0.0
+#          openapi-generator-cli version
+#      - name: generate
+#        run: |
+#          npx @openapitools/openapi-generator-cli generate -i swagger.json -g javascript -o JS
      - name: install and publish
        run: |
          cd JS
          cat ./package.json | jq '.scripts.prepack = ["npm install && npm run build"]' > ./package1.json
          cat ./package1.json | jq '.scripts.prepack = ["npm install && npm run build"]' > ./package.json
+         npm install -g npm-bundle
          npm install
-         npm login --registry=https://npm.pkg.github.com
-         npm publish
-       env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM }}
+         npm-bundle
+     - uses: actions/upload-artifact@v2
+       with:
+         name: npm
+         path: JS/west_marches_api-1.0.0.tgz
 
   C-Sharp:
      runs-on: ubuntu-latest
@@ -41,35 +43,24 @@ jobs:
        uses: actions/setup-dotnet@v1
        with:
          dotnet-version: 3.1.100
-     - uses: actions/setup-node@v1
-       with:
-         node-version: '12.x'
-         registry-url: 'https://npm.pkg.github.com'
-     - name: install
-       run: |
-         npm install -g @openapitools/openapi-generator-cli
-         openapi-generator-cli version-manager set 5.0.0
-         openapi-generator-cli version
-     - name: generate
-       run: |
-         npx @openapitools/openapi-generator-cli generate -i swagger.json -g csharp-netcore -o C#
      - name: install and publish
        run: |
          cd C#
          cd src
          cd Org.OpenAPITools
-         ls
-     - name: Pack with dotnet
-       run: |
-        dotnet restore Org.OpenAPITools.csproj
-        dotnet build Org.OpenAPITools.csproj --configuration Release
-        dotnet pack  Org.OpenAPITools.csproj --configuration Release
+         dotnet restore
+         dotnet build --configuration Release
+         dotnet pack --configuration Release
      - uses: nuget/setup-nuget@v1
        with:
          nuget-api-key: ${{ secrets.NUGET_API_KEY }}
          nuget-version: 'latest'
-#     - name: Push package to the Github Package Registry
-#       run: |
+     - uses: actions/upload-artifact@v2
+       with:
+         name: nuget
+         path: C#/src/Org.OpenAPITools/bin/Release/Org.OpenAPITools.1.0.0.nupkg      
+#      - name: Push package to the Github Package Registry
+#        run: |
 #         nuget sources Add -Name "GPR" -Source "https://nuget.pkg.github.com/WestMarches/index.json" -UserName WestMarches -Password ${{ secrets.GITHUB_TOKEN }}
 #         nuget setApiKey ${{ secrets.NUGET_API_KEY }} -Source "GPR"
-#         nuget push WM-SDK/bin/Release/*.nupkg -Source "GPR" -SkipDuplicate
+#         nuget push C#/src/Org.OpenAPITools/bin/Release/*.nupkg -Source "GPR" -SkipDuplicate
