@@ -55,6 +55,6 @@ jobs:
          nuget-version: 'latest'
      - name: Push package to the Github Package Registry
        run: |
-        nuget sources Add -Name "GPR" -Source "https://nuget.pkg.github.com/WestMarches/index.json" -UserName WestMarches -Password ${{ secrets.GITHUB_TOKEN }}
+        nuget sources Add -Name "GPR" -Source "https://nuget.pkg.github.com/WestMarches/index.json" -UserName brajm008 -Password ${{ secrets.PAT }}
         nuget setApiKey ${{ secrets.NUGET_API_KEY }} -Source "GPR"
         nuget push C#/src/Org.OpenAPITools/bin/Release/*.nupkg -Source "GPR" -SkipDuplicate
