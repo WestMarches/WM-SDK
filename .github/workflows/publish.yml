@@ -58,6 +58,8 @@ jobs:
        with:
          dotnet-version: 3.1.100
          source-url: https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json
+       env:
+        NUGET_AUTH_TOKEN: '%NUGET_AUTH_TOKEN%'
      - name: Push package to the Github Package Registry
        run: |
         nuget sources Add -Name "GPR" -Source "https://nuget.pkg.github.com/WestMarches/index.json" -UserName WestMarches -Password ${{ secrets.GITHUB_TOKEN }}
