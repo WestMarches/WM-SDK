@@ -28,10 +28,9 @@ jobs:
          cat ./package.json | jq '.scripts.prepack = ["npm install && npm run build"]' > ./package1.json
          cat ./package1.json | jq '.scripts.prepack = ["npm install && npm run build"]' > ./package.json
          npm install
-         npm login --registry=https://npm.pkg.github.com
          npm publish
        env:
-          NODE_AUTH_TOKEN: ${{ secrets.PAT }}
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   C-Sharp:
      runs-on: ubuntu-latest
