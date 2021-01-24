@@ -27,8 +27,11 @@ jobs:
          cd JS
          cat ./package.json | jq '.scripts.prepack = ["npm install && npm run build"]' > ./package1.json
          cat ./package1.json | jq '.scripts.prepack = ["npm install && npm run build"]' > ./package.json
+         ls
+         npm install -g npm-bundle
          npm install
-         npm publish
+         npm-bundle
+         ls
        env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
