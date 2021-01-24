@@ -62,6 +62,7 @@ jobs:
         NUGET_AUTH_TOKEN: '%NUGET_AUTH_TOKEN%'
      - name: Push package to the Github Package Registry
        run: |
-         nuget push C#/src/Org.OpenAPITools/bin/Release/*.nupkg -SkipDuplicate --api-key ${{ secrets.NUGET_API_KEY }}
+         nuget setApiKey ${{ secrets.NUGET_API_KEY }}
+         nuget push C#/src/Org.OpenAPITools/bin/Release/*.nupkg -SkipDuplicate
        env:
         NUGET_AUTH_TOKEN: ${{ github.token }}
