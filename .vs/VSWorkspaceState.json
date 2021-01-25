@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\C#"
   ],
-  "SelectedNode": "\\swagger.json",
+  "SelectedNode": "\\C#\\Org.OpenAPITools.sln",
   "PreviewInSolutionExplorer": false
 }

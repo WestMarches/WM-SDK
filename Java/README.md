@@ -2,7 +2,7 @@
 
 WestMarches API
 - API version: 1.0.0
-  - Build date: 2021-01-25T17:37:26.214+10:30[Australia/Adelaide]
+  - Build date: 2021-01-25T17:55:47.969+10:30[Australia/Adelaide]
 
 West Marches API
 

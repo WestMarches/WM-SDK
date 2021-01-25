@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * RegistrationRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-01-25T17:37:26.214+10:30[Australia/Adelaide]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-01-25T17:55:47.969+10:30[Australia/Adelaide]")
 public class RegistrationRequest {
   public static final String SERIALIZED_NAME_DISCORD_ID = "discordId";
   @SerializedName(SERIALIZED_NAME_DISCORD_ID)
