@@ -31,6 +31,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "http://localhost:5000";
+            // Configure API key authorization: Bearer
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+
             var apiInstance = new CampaignApi(config);
             var id = new Guid(); // Guid | 
 
@@ -62,7 +67,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -98,6 +103,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "http://localhost:5000";
+            // Configure API key authorization: Bearer
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+
             var apiInstance = new CampaignApi(config);
             var id = new Guid(); // Guid | 
             var campaign = new Campaign(); // Campaign |  (optional) 
@@ -130,7 +140,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -166,6 +176,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "http://localhost:5000";
+            // Configure API key authorization: Bearer
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+
             var apiInstance = new CampaignApi(config);
             var id = new Guid(); // Guid | 
             var campaign = new Campaign(); // Campaign |  (optional) 
@@ -199,7 +214,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 

@@ -26,12 +26,11 @@ class Campaign {
     /**
      * Constructs a new <code>Campaign</code>.
      * @alias module:model/Campaign
-     * @param gameSystem {module:model/GameSystem} 
      * @param title {String} 
      */
-    constructor(gameSystem, title) { 
+    constructor(title) { 
         
-        Campaign.initialize(this, gameSystem, title);
+        Campaign.initialize(this, title);
     }
 
     /**
@@ -39,8 +38,7 @@ class Campaign {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, gameSystem, title) { 
-        obj['gameSystem'] = gameSystem;
+    static initialize(obj, title) { 
         obj['title'] = title;
     }
 

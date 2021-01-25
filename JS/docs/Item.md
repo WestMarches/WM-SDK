@@ -8,6 +8,6 @@ Name | Type | Description | Notes
 **homeBrewOrigin** | [**Campaign**](Campaign.md) |  | [optional] 
 **itemName** | **String** |  | 
 **currencyValue** | **Number** |  | 
-**gameSystem** | [**GameSystem**](GameSystem.md) |  | 
+**gameSystem** | [**GameSystem**](GameSystem.md) |  | [optional] 
 
 

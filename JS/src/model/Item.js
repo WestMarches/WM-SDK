@@ -26,11 +26,10 @@ class Item {
      * @alias module:model/Item
      * @param itemName {String} 
      * @param currencyValue {Number} 
-     * @param gameSystem {module:model/GameSystem} 
      */
-    constructor(itemName, currencyValue, gameSystem) { 
+    constructor(itemName, currencyValue) { 
         
-        Item.initialize(this, itemName, currencyValue, gameSystem);
+        Item.initialize(this, itemName, currencyValue);
     }
 
     /**
@@ -38,10 +37,9 @@ class Item {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, itemName, currencyValue, gameSystem) { 
+    static initialize(obj, itemName, currencyValue) { 
         obj['itemName'] = itemName;
         obj['currencyValue'] = currencyValue;
-        obj['game_System'] = gameSystem;
     }
 
     /**

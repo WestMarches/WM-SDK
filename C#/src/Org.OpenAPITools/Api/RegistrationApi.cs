@@ -233,6 +233,11 @@ namespace Org.OpenAPITools.Api
 
             localVarRequestOptions.Data = registrationRequest;
 
+            // authentication (Bearer) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<Object>("/api/registration", localVarRequestOptions, this.Configuration);
@@ -287,6 +292,11 @@ namespace Org.OpenAPITools.Api
 
             localVarRequestOptions.Data = registrationRequest;
 
+            // authentication (Bearer) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
 
             // make the HTTP request
 

@@ -8,6 +8,8 @@ servers:
   url: http://localhost:5000
 - description: Deployed
   url: http://api.westmarchesapi.net/
+security:
+- Bearer: []
 paths:
   /api/campaign/{id}:
     get:
@@ -264,7 +266,6 @@ components:
           $ref: '#/components/schemas/Game_system'
       required:
       - currencyValue
-      - game_System
       - itemName
       type: object
     Stock:
@@ -658,7 +659,6 @@ components:
         guild:
           $ref: '#/components/schemas/Guild'
       required:
-      - gameSystem
       - title
       type: object
     IRequest:
@@ -690,4 +690,11 @@ components:
           nullable: true
           type: array
       type: object
+  securitySchemes:
+    Bearer:
+      description: 'JWT Authorization header using the Bearer scheme. Example: "Authorization:
+        Bearer {token}"'
+      in: header
+      name: Authorization
+      type: apiKey
 

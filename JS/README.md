@@ -100,6 +100,12 @@ Please follow the [installation](#installation) instruction and execute the foll
 ```javascript
 var WestMarchesApi = require('west_marches_api');
 
+var defaultClient = WestMarchesApi.ApiClient.instance;
+// Configure API key authorization: Bearer
+var Bearer = defaultClient.authentications['Bearer'];
+Bearer.apiKey = "YOUR API KEY"
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Bearer.apiKeyPrefix['Authorization'] = "Token"
 
 var api = new WestMarchesApi.CampaignApi()
 var id = null; // {String} 
@@ -149,4 +155,12 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Authorization
 
-All endpoints do not require authorization.
+
+
+### Bearer
+
+
+- **Type**: API key
+- **API key parameter name**: Authorization
+- **Location**: HTTP header
+

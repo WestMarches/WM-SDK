@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** |  | [optional] 
-**gameSystem** | [**GameSystem**](GameSystem.md) |  | 
+**gameSystem** | [**GameSystem**](GameSystem.md) |  | [optional] 
 **title** | **String** |  | 
 **owner** | [**User**](User.md) |  | [optional] 
 **status** | [**CampaignStatus**](CampaignStatus.md) |  | [optional] 
