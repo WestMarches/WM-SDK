@@ -62,7 +62,7 @@ export default class DiscordApi {
       let formParams = {
       };
 
-      let authNames = [];
+      let authNames = ['Bearer'];
       let contentTypes = [];
       let accepts = [];
       let returnType = null;
@@ -96,7 +96,7 @@ export default class DiscordApi {
       let formParams = {
       };
 
-      let authNames = [];
+      let authNames = ['Bearer'];
       let contentTypes = [];
       let accepts = [];
       let returnType = null;
@@ -131,7 +131,7 @@ export default class DiscordApi {
       let formParams = {
       };
 
-      let authNames = [];
+      let authNames = ['Bearer'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = [Object];

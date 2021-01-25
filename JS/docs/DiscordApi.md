@@ -20,6 +20,12 @@ Method | HTTP request | Description
 
 ```javascript
 import WestMarchesApi from 'west_marches_api';
+let defaultClient = WestMarchesApi.ApiClient.instance;
+// Configure API key authorization: Bearer
+let Bearer = defaultClient.authentications['Bearer'];
+Bearer.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Bearer.apiKeyPrefix = 'Token';
 
 let apiInstance = new WestMarchesApi.DiscordApi();
 let id = "id_example"; // String | 
@@ -45,7 +51,7 @@ null (empty response body)
 
 ### Authorization
 
-No authorization required
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -63,6 +69,12 @@ No authorization required
 
 ```javascript
 import WestMarchesApi from 'west_marches_api';
+let defaultClient = WestMarchesApi.ApiClient.instance;
+// Configure API key authorization: Bearer
+let Bearer = defaultClient.authentications['Bearer'];
+Bearer.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Bearer.apiKeyPrefix = 'Token';
 
 let apiInstance = new WestMarchesApi.DiscordApi();
 apiInstance.closeDiscordServer((error, data, response) => {
@@ -84,7 +96,7 @@ null (empty response body)
 
 ### Authorization
 
-No authorization required
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -102,6 +114,12 @@ No authorization required
 
 ```javascript
 import WestMarchesApi from 'west_marches_api';
+let defaultClient = WestMarchesApi.ApiClient.instance;
+// Configure API key authorization: Bearer
+let Bearer = defaultClient.authentications['Bearer'];
+Bearer.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Bearer.apiKeyPrefix = 'Token';
 
 let apiInstance = new WestMarchesApi.DiscordApi();
 apiInstance.getIncomingForDiscordServer((error, data, response) => {
@@ -123,7 +141,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 

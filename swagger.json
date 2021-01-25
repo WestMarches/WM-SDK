@@ -348,7 +348,6 @@
       "Item": {
         "required": [
           "currencyValue",
-          "game_System",
           "itemName"
         ],
         "type": "object",
@@ -579,7 +578,6 @@
       },
       "Campaign": {
         "required": [
-          "gameSystem",
           "title"
         ],
         "type": "object",
@@ -636,6 +634,19 @@
         },
         "additionalProperties": false
       }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "apiKey",
+        "description": "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\"",
+        "name": "Authorization",
+        "in": "header"
+      }
     }
-  }
+  },
+  "security": [
+    {
+      "Bearer": []
+    }
+  ]
 }

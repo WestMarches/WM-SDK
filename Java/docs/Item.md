@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **homeBrewOrigin** | [**Campaign**](Campaign.md) |  |  [optional]
 **itemName** | **String** |  | 
 **currencyValue** | **Integer** |  | 
-**gameSystem** | **GameSystem** |  | 
+**gameSystem** | **GameSystem** |  |  [optional]
 
 
 

@@ -60,7 +60,7 @@ export default class RegistrationApi {
       let formParams = {
       };
 
-      let authNames = [];
+      let authNames = ['Bearer'];
       let contentTypes = ['application/json'];
       let accepts = [];
       let returnType = null;

@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **Guid** |  | [optional] 
-**GameSystem** | [**GameSystem**](GameSystem.md) |  | 
+**GameSystem** | [**GameSystem**](GameSystem.md) |  | [optional] 
 **Title** | **string** |  | 
 **Owner** | [**User**](User.md) |  | [optional] 
 **Status** | [**CampaignStatus**](CampaignStatus.md) |  | [optional] 

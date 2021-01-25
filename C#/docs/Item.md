@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **HomeBrewOrigin** | [**Campaign**](Campaign.md) |  | [optional] 
 **ItemName** | **string** |  | 
 **CurrencyValue** | **int** |  | 
-**GameSystem** | [**GameSystem**](GameSystem.md) |  | 
+**GameSystem** | [**GameSystem**](GameSystem.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

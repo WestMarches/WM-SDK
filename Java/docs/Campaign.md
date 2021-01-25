@@ -7,7 +7,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **UUID** |  |  [optional]
-**gameSystem** | **GameSystem** |  | 
+**gameSystem** | **GameSystem** |  |  [optional]
 **title** | **String** |  | 
 **owner** | [**User**](User.md) |  |  [optional]
 **status** | **CampaignStatus** |  |  [optional]

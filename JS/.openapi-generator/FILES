@@ -1,6 +1,5 @@
 .babelrc
 .gitignore
-.openapi-generator-ignore
 .travis.yml
 README.md
 docs/Campaign.md
@@ -38,18 +37,3 @@ src/model/RegistrationRequest.js
 src/model/Stock.js
 src/model/User.js
 src/model/UserRoles.js
-test/api/CampaignApi.spec.js
-test/api/CharacterApi.spec.js
-test/api/DiscordApi.spec.js
-test/api/RegistrationApi.spec.js
-test/api/UserApi.spec.js
-test/model/Campaign.spec.js
-test/model/CampaignStatus.spec.js
-test/model/Character.spec.js
-test/model/GameSystem.spec.js
-test/model/Guild.spec.js
-test/model/Item.spec.js
-test/model/RegistrationRequest.spec.js
-test/model/Stock.spec.js
-test/model/User.spec.js
-test/model/UserRoles.spec.js

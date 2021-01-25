@@ -43,16 +43,15 @@ namespace Org.OpenAPITools.Model
         /// <param name="homeBrewOrigin">homeBrewOrigin.</param>
         /// <param name="itemName">itemName (required).</param>
         /// <param name="currencyValue">currencyValue (required).</param>
-        /// <param name="gameSystem">gameSystem (required).</param>
+        /// <param name="gameSystem">gameSystem.</param>
         public Item(Guid id = default(Guid), Campaign homeBrewOrigin = default(Campaign), string itemName = default(string), int currencyValue = default(int), GameSystem gameSystem = default(GameSystem))
         {
             // to ensure "itemName" is required (not null)
             this.ItemName = itemName ?? throw new ArgumentNullException("itemName is a required property for Item and cannot be null");
             this.CurrencyValue = currencyValue;
-            // to ensure "gameSystem" is required (not null)
-            this.GameSystem = gameSystem;
             this.Id = id;
             this.HomeBrewOrigin = homeBrewOrigin;
+            this.GameSystem = gameSystem;
         }
 
         /// <summary>
@@ -82,7 +81,7 @@ namespace Org.OpenAPITools.Model
         /// <summary>
         /// Gets or Sets GameSystem
         /// </summary>
-        [DataMember(Name = "game_System", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "game_System", EmitDefaultValue = false)]
         public GameSystem GameSystem { get; set; }
 
         /// <summary>

@@ -40,18 +40,17 @@ namespace Org.OpenAPITools.Model
         /// Initializes a new instance of the <see cref="Campaign" /> class.
         /// </summary>
         /// <param name="id">id.</param>
-        /// <param name="gameSystem">gameSystem (required).</param>
+        /// <param name="gameSystem">gameSystem.</param>
         /// <param name="title">title (required).</param>
         /// <param name="owner">owner.</param>
         /// <param name="status">status.</param>
         /// <param name="guild">guild.</param>
         public Campaign(Guid id = default(Guid), GameSystem gameSystem = default(GameSystem), string title = default(string), User owner = default(User), CampaignStatus status = default(CampaignStatus), Guild guild = default(Guild))
         {
-            // to ensure "gameSystem" is required (not null)
-            this.GameSystem = gameSystem;
             // to ensure "title" is required (not null)
             this.Title = title ?? throw new ArgumentNullException("title is a required property for Campaign and cannot be null");
             this.Id = id;
+            this.GameSystem = gameSystem;
             this.Owner = owner;
             this.Status = status;
             this.Guild = guild;
@@ -66,7 +65,7 @@ namespace Org.OpenAPITools.Model
         /// <summary>
         /// Gets or Sets GameSystem
         /// </summary>
-        [DataMember(Name = "gameSystem", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "gameSystem", EmitDefaultValue = false)]
         public GameSystem GameSystem { get; set; }
 
         /// <summary>

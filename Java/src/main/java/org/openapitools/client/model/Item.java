@@ -30,7 +30,7 @@ import org.openapitools.client.model.GameSystem;
 /**
  * Item
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-01-22T20:18:22.178+10:30[Australia/Adelaide]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-01-25T17:37:26.214+10:30[Australia/Adelaide]")
 public class Item {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -153,7 +153,8 @@ public class Item {
    * Get gameSystem
    * @return gameSystem
   **/
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public GameSystem getGameSystem() {
     return gameSystem;

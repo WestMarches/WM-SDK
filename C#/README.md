@@ -72,6 +72,11 @@ namespace Example
 
             Configuration config = new Configuration();
             config.BasePath = "http://localhost:5000";
+            // Configure API key authorization: Bearer
+            config.ApiKey.Add("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.ApiKeyPrefix.Add("Authorization", "Bearer");
+
             var apiInstance = new CampaignApi(config);
             var id = new Guid(); // Guid | 
 
@@ -130,4 +135,10 @@ Class | Method | HTTP request | Description
 <a name="documentation-for-authorization"></a>
 ## Documentation for Authorization
 
-All endpoints do not require authorization.
+<a name="Bearer"></a>
+### Bearer
+
+- **Type**: API key
+- **API key parameter name**: Authorization
+- **Location**: HTTP header
+
