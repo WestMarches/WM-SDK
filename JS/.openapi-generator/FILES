@@ -12,10 +12,10 @@ docs/GameSystem.md
 docs/Guild.md
 docs/Item.md
 docs/RegistrationApi.md
-docs/RegistrationRequest.md
 docs/Stock.md
 docs/User.md
 docs/UserApi.md
+docs/UserCredentials.md
 docs/UserRoles.md
 git_push.sh
 mocha.opts
@@ -33,7 +33,8 @@ src/model/Character.js
 src/model/GameSystem.js
 src/model/Guild.js
 src/model/Item.js
-src/model/RegistrationRequest.js
 src/model/Stock.js
 src/model/User.js
+src/model/UserCredentials.js
 src/model/UserRoles.js
+test/model/UserCredentials.spec.js

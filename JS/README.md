@@ -108,7 +108,6 @@ Bearer.apiKey = "YOUR API KEY"
 //Bearer.apiKeyPrefix['Authorization'] = "Token"
 
 var api = new WestMarchesApi.CampaignApi()
-var id = null; // {String} 
 var callback = function(error, data, response) {
   if (error) {
     console.error(error);
@@ -116,7 +115,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-api.apiCampaignIdGet(id, callback);
+api.apiCampaignGet(callback);
 
 ```
 
@@ -126,17 +125,19 @@ All URIs are relative to *http://localhost:5000*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*WestMarchesApi.CampaignApi* | [**apiCampaignGet**](docs/CampaignApi.md#apiCampaignGet) | **GET** /api/campaign | 
 *WestMarchesApi.CampaignApi* | [**apiCampaignIdGet**](docs/CampaignApi.md#apiCampaignIdGet) | **GET** /api/campaign/{id} | 
-*WestMarchesApi.CampaignApi* | [**apiCampaignIdPost**](docs/CampaignApi.md#apiCampaignIdPost) | **POST** /api/campaign/{id} | 
-*WestMarchesApi.CampaignApi* | [**apiCampaignIdPut**](docs/CampaignApi.md#apiCampaignIdPut) | **PUT** /api/campaign/{id} | 
-*WestMarchesApi.CharacterApi* | [**apiCharacterIdGet**](docs/CharacterApi.md#apiCharacterIdGet) | **GET** /api/character/{id} | 
-*WestMarchesApi.CharacterApi* | [**apiCharacterMyIdGet**](docs/CharacterApi.md#apiCharacterMyIdGet) | **GET** /api/character/my/{id} | 
+*WestMarchesApi.CampaignApi* | [**apiCampaignPost**](docs/CampaignApi.md#apiCampaignPost) | **POST** /api/campaign | 
+*WestMarchesApi.CampaignApi* | [**apiCampaignPut**](docs/CampaignApi.md#apiCampaignPut) | **PUT** /api/campaign | 
+*WestMarchesApi.CharacterApi* | [**apiCharacterDndBeyondIdGet**](docs/CharacterApi.md#apiCharacterDndBeyondIdGet) | **GET** /api/character/dndBeyond/{id} | 
+*WestMarchesApi.CharacterApi* | [**apiCharacterDndBeyondPost**](docs/CharacterApi.md#apiCharacterDndBeyondPost) | **POST** /api/character/dndBeyond | 
+*WestMarchesApi.CharacterApi* | [**apiCharacterMyGet**](docs/CharacterApi.md#apiCharacterMyGet) | **GET** /api/character/my | 
 *WestMarchesApi.DiscordApi* | [**addStoreToDiscordServer**](docs/DiscordApi.md#addStoreToDiscordServer) | **GET** /api/discord/store/{id} | 
 *WestMarchesApi.DiscordApi* | [**closeDiscordServer**](docs/DiscordApi.md#closeDiscordServer) | **GET** /api/discord/close | 
 *WestMarchesApi.DiscordApi* | [**getIncomingForDiscordServer**](docs/DiscordApi.md#getIncomingForDiscordServer) | **GET** /api/discord/stack | 
 *WestMarchesApi.RegistrationApi* | [**apiRegistrationPost**](docs/RegistrationApi.md#apiRegistrationPost) | **POST** /api/registration | 
-*WestMarchesApi.UserApi* | [**apiUserIdGet**](docs/UserApi.md#apiUserIdGet) | **GET** /api/user/{id} | 
-*WestMarchesApi.UserApi* | [**apiUserIdPut**](docs/UserApi.md#apiUserIdPut) | **PUT** /api/user/{id} | 
+*WestMarchesApi.UserApi* | [**apiUserGet**](docs/UserApi.md#apiUserGet) | **GET** /api/user | 
+*WestMarchesApi.UserApi* | [**apiUserPut**](docs/UserApi.md#apiUserPut) | **PUT** /api/user | 
 
 
 ## Documentation for Models
@@ -147,9 +148,9 @@ Class | Method | HTTP request | Description
  - [WestMarchesApi.GameSystem](docs/GameSystem.md)
  - [WestMarchesApi.Guild](docs/Guild.md)
  - [WestMarchesApi.Item](docs/Item.md)
- - [WestMarchesApi.RegistrationRequest](docs/RegistrationRequest.md)
  - [WestMarchesApi.Stock](docs/Stock.md)
  - [WestMarchesApi.User](docs/User.md)
+ - [WestMarchesApi.UserCredentials](docs/UserCredentials.md)
  - [WestMarchesApi.UserRoles](docs/UserRoles.md)
 
 

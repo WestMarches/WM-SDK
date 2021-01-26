@@ -13,7 +13,6 @@
 
 
 import ApiClient from "../ApiClient";
-import RegistrationRequest from '../model/RegistrationRequest';
 
 /**
 * Registration service.
@@ -43,13 +42,10 @@ export default class RegistrationApi {
      */
 
     /**
-     * @param {Object} opts Optional parameters
-     * @param {module:model/RegistrationRequest} opts.registrationRequest 
      * @param {module:api/RegistrationApi~apiRegistrationPostCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    apiRegistrationPost(opts, callback) {
-      opts = opts || {};
-      let postBody = opts['registrationRequest'];
+    apiRegistrationPost(callback) {
+      let postBody = null;
 
       let pathParams = {
       };
@@ -61,7 +57,7 @@ export default class RegistrationApi {
       };
 
       let authNames = ['Bearer'];
-      let contentTypes = ['application/json'];
+      let contentTypes = [];
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(

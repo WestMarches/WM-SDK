@@ -2,7 +2,7 @@
 
 WestMarches API
 - API version: 1.0.0
-  - Build date: 2021-01-25T17:55:47.969+10:30[Australia/Adelaide]
+  - Build date: 2021-01-26T11:34:06.333+10:30[Australia/Adelaide]
 
 West Marches API
 
@@ -92,12 +92,11 @@ public class Example {
     //Bearer.setApiKeyPrefix("Token");
 
     CampaignApi apiInstance = new CampaignApi(defaultClient);
-    UUID id = new UUID(); // UUID | 
     try {
-      Campaign result = apiInstance.apiCampaignIdGet(id);
+      List<Campaign> result = apiInstance.apiCampaignGet();
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling CampaignApi#apiCampaignIdGet");
+      System.err.println("Exception when calling CampaignApi#apiCampaignGet");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -114,17 +113,19 @@ All URIs are relative to *http://localhost:5000*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*CampaignApi* | [**apiCampaignGet**](docs/CampaignApi.md#apiCampaignGet) | **GET** /api/campaign | 
 *CampaignApi* | [**apiCampaignIdGet**](docs/CampaignApi.md#apiCampaignIdGet) | **GET** /api/campaign/{id} | 
-*CampaignApi* | [**apiCampaignIdPost**](docs/CampaignApi.md#apiCampaignIdPost) | **POST** /api/campaign/{id} | 
-*CampaignApi* | [**apiCampaignIdPut**](docs/CampaignApi.md#apiCampaignIdPut) | **PUT** /api/campaign/{id} | 
-*CharacterApi* | [**apiCharacterIdGet**](docs/CharacterApi.md#apiCharacterIdGet) | **GET** /api/character/{id} | 
-*CharacterApi* | [**apiCharacterMyIdGet**](docs/CharacterApi.md#apiCharacterMyIdGet) | **GET** /api/character/my/{id} | 
+*CampaignApi* | [**apiCampaignPost**](docs/CampaignApi.md#apiCampaignPost) | **POST** /api/campaign | 
+*CampaignApi* | [**apiCampaignPut**](docs/CampaignApi.md#apiCampaignPut) | **PUT** /api/campaign | 
+*CharacterApi* | [**apiCharacterDndBeyondIdGet**](docs/CharacterApi.md#apiCharacterDndBeyondIdGet) | **GET** /api/character/dndBeyond/{id} | 
+*CharacterApi* | [**apiCharacterDndBeyondPost**](docs/CharacterApi.md#apiCharacterDndBeyondPost) | **POST** /api/character/dndBeyond | 
+*CharacterApi* | [**apiCharacterMyGet**](docs/CharacterApi.md#apiCharacterMyGet) | **GET** /api/character/my | 
 *DiscordApi* | [**addStoreToDiscordServer**](docs/DiscordApi.md#addStoreToDiscordServer) | **GET** /api/discord/store/{id} | 
 *DiscordApi* | [**closeDiscordServer**](docs/DiscordApi.md#closeDiscordServer) | **GET** /api/discord/close | 
 *DiscordApi* | [**getIncomingForDiscordServer**](docs/DiscordApi.md#getIncomingForDiscordServer) | **GET** /api/discord/stack | 
 *RegistrationApi* | [**apiRegistrationPost**](docs/RegistrationApi.md#apiRegistrationPost) | **POST** /api/registration | 
-*UserApi* | [**apiUserIdGet**](docs/UserApi.md#apiUserIdGet) | **GET** /api/user/{id} | 
-*UserApi* | [**apiUserIdPut**](docs/UserApi.md#apiUserIdPut) | **PUT** /api/user/{id} | 
+*UserApi* | [**apiUserGet**](docs/UserApi.md#apiUserGet) | **GET** /api/user | 
+*UserApi* | [**apiUserPut**](docs/UserApi.md#apiUserPut) | **PUT** /api/user | 
 
 
 ## Documentation for Models
@@ -135,9 +136,9 @@ Class | Method | HTTP request | Description
  - [GameSystem](docs/GameSystem.md)
  - [Guild](docs/Guild.md)
  - [Item](docs/Item.md)
- - [RegistrationRequest](docs/RegistrationRequest.md)
  - [Stock](docs/Stock.md)
  - [User](docs/User.md)
+ - [UserCredentials](docs/UserCredentials.md)
  - [UserRoles](docs/UserRoles.md)
 
 

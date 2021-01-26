@@ -4,10 +4,74 @@ All URIs are relative to *http://localhost:5000*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**apiCampaignGet**](CampaignApi.md#apiCampaignGet) | **GET** /api/campaign | 
 [**apiCampaignIdGet**](CampaignApi.md#apiCampaignIdGet) | **GET** /api/campaign/{id} | 
-[**apiCampaignIdPost**](CampaignApi.md#apiCampaignIdPost) | **POST** /api/campaign/{id} | 
-[**apiCampaignIdPut**](CampaignApi.md#apiCampaignIdPut) | **PUT** /api/campaign/{id} | 
+[**apiCampaignPost**](CampaignApi.md#apiCampaignPost) | **POST** /api/campaign | 
+[**apiCampaignPut**](CampaignApi.md#apiCampaignPut) | **PUT** /api/campaign | 
 
+
+<a name="apiCampaignGet"></a>
+# **apiCampaignGet**
+> List&lt;Campaign&gt; apiCampaignGet()
+
+
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.CampaignApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:5000");
+    
+    // Configure API key authorization: Bearer
+    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
+    Bearer.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer.setApiKeyPrefix("Token");
+
+    CampaignApi apiInstance = new CampaignApi(defaultClient);
+    try {
+      List<Campaign> result = apiInstance.apiCampaignGet();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling CampaignApi#apiCampaignGet");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**List&lt;Campaign&gt;**](Campaign.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
 
 <a name="apiCampaignIdGet"></a>
 # **apiCampaignIdGet**
@@ -76,9 +140,9 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | Success |  -  |
 
-<a name="apiCampaignIdPost"></a>
-# **apiCampaignIdPost**
-> apiCampaignIdPost(id, campaign)
+<a name="apiCampaignPost"></a>
+# **apiCampaignPost**
+> apiCampaignPost(campaign)
 
 
 
@@ -104,12 +168,11 @@ public class Example {
     //Bearer.setApiKeyPrefix("Token");
 
     CampaignApi apiInstance = new CampaignApi(defaultClient);
-    UUID id = new UUID(); // UUID | 
     Campaign campaign = new Campaign(); // Campaign | 
     try {
-      apiInstance.apiCampaignIdPost(id, campaign);
+      apiInstance.apiCampaignPost(campaign);
     } catch (ApiException e) {
-      System.err.println("Exception when calling CampaignApi#apiCampaignIdPost");
+      System.err.println("Exception when calling CampaignApi#apiCampaignPost");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -123,7 +186,6 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**UUID**](.md)|  |
  **campaign** | [**Campaign**](Campaign.md)|  | [optional]
 
 ### Return type
@@ -144,9 +206,9 @@ null (empty response body)
 |-------------|-------------|------------------|
 **200** | Success |  -  |
 
-<a name="apiCampaignIdPut"></a>
-# **apiCampaignIdPut**
-> Campaign apiCampaignIdPut(id, campaign)
+<a name="apiCampaignPut"></a>
+# **apiCampaignPut**
+> Campaign apiCampaignPut(campaign)
 
 
 
@@ -172,13 +234,12 @@ public class Example {
     //Bearer.setApiKeyPrefix("Token");
 
     CampaignApi apiInstance = new CampaignApi(defaultClient);
-    UUID id = new UUID(); // UUID | 
     Campaign campaign = new Campaign(); // Campaign | 
     try {
-      Campaign result = apiInstance.apiCampaignIdPut(id, campaign);
+      Campaign result = apiInstance.apiCampaignPut(campaign);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling CampaignApi#apiCampaignIdPut");
+      System.err.println("Exception when calling CampaignApi#apiCampaignPut");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -192,7 +253,6 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**UUID**](.md)|  |
  **campaign** | [**Campaign**](Campaign.md)|  | [optional]
 
 ### Return type

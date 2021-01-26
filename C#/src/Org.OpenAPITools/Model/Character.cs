@@ -44,6 +44,7 @@ namespace Org.OpenAPITools.Model
         /// <param name="server">server.</param>
         /// <param name="name">name (required).</param>
         /// <param name="level">level (required).</param>
+        /// <param name="inspiration">inspiration (required).</param>
         /// <param name="currency">currency (required).</param>
         /// <param name="experience">experience (required).</param>
         /// <param name="experienceCap">experienceCap.</param>
@@ -52,11 +53,12 @@ namespace Org.OpenAPITools.Model
         /// <param name="roles">roles.</param>
         /// <param name="readyDate">readyDate (required).</param>
         /// <param name="ddBeyond">ddBeyond.</param>
-        public Character(Guid id = default(Guid), User owner = default(User), Campaign server = default(Campaign), string name = default(string), int level = default(int), int currency = default(int), int experience = default(int), int experienceCap = default(int), bool alive = default(bool), List<Stock> inventory = default(List<Stock>), List<UserRoles> roles = default(List<UserRoles>), DateTime readyDate = default(DateTime), long ddBeyond = default(long))
+        public Character(Guid id = default(Guid), User owner = default(User), Campaign server = default(Campaign), string name = default(string), int level = default(int), int inspiration = default(int), int currency = default(int), int experience = default(int), int experienceCap = default(int), bool alive = default(bool), List<Stock> inventory = default(List<Stock>), List<UserRoles> roles = default(List<UserRoles>), DateTime readyDate = default(DateTime), long ddBeyond = default(long))
         {
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for Character and cannot be null");
             this.Level = level;
+            this.Inspiration = inspiration;
             this.Currency = currency;
             this.Experience = experience;
             this.Alive = alive;
@@ -99,6 +101,12 @@ namespace Org.OpenAPITools.Model
         /// </summary>
         [DataMember(Name = "level", IsRequired = true, EmitDefaultValue = false)]
         public int Level { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Inspiration
+        /// </summary>
+        [DataMember(Name = "inspiration", IsRequired = true, EmitDefaultValue = false)]
+        public int Inspiration { get; set; }
 
         /// <summary>
         /// Gets or Sets Currency
@@ -176,6 +184,7 @@ namespace Org.OpenAPITools.Model
             sb.Append("  Server: ").Append(Server).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Level: ").Append(Level).Append("\n");
+            sb.Append("  Inspiration: ").Append(Inspiration).Append("\n");
             sb.Append("  Currency: ").Append(Currency).Append("\n");
             sb.Append("  Format: ").Append(Format).Append("\n");
             sb.Append("  Experience: ").Append(Experience).Append("\n");
@@ -244,6 +253,10 @@ namespace Org.OpenAPITools.Model
                     this.Level.Equals(input.Level)
                 ) && 
                 (
+                    this.Inspiration == input.Inspiration ||
+                    this.Inspiration.Equals(input.Inspiration)
+                ) && 
+                (
                     this.Currency == input.Currency ||
                     this.Currency.Equals(input.Currency)
                 ) && 
@@ -305,6 +318,7 @@ namespace Org.OpenAPITools.Model
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
                 hashCode = hashCode * 59 + this.Level.GetHashCode();
+                hashCode = hashCode * 59 + this.Inspiration.GetHashCode();
                 hashCode = hashCode * 59 + this.Currency.GetHashCode();
                 if (this.Format != null)
                     hashCode = hashCode * 59 + this.Format.GetHashCode();

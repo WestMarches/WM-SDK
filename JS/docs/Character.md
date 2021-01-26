@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **server** | [**Campaign**](Campaign.md) |  | [optional] 
 **name** | **String** |  | 
 **level** | **Number** |  | 
+**inspiration** | **Number** |  | 
 **currency** | **Number** |  | 
 **format** | **String** |  | [optional] [readonly] 
 **experience** | **Number** |  | 

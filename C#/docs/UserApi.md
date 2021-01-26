@@ -4,13 +4,13 @@ All URIs are relative to *http://localhost:5000*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ApiUserIdGet**](UserApi.md#apiuseridget) | **GET** /api/user/{id} | 
-[**ApiUserIdPut**](UserApi.md#apiuseridput) | **PUT** /api/user/{id} | 
+[**ApiUserGet**](UserApi.md#apiuserget) | **GET** /api/user | 
+[**ApiUserPut**](UserApi.md#apiuserput) | **PUT** /api/user | 
 
 
-<a name="apiuseridget"></a>
-# **ApiUserIdGet**
-> User ApiUserIdGet (Guid id)
+<a name="apiuserget"></a>
+# **ApiUserGet**
+> User ApiUserGet ()
 
 
 
@@ -24,7 +24,7 @@ using Org.OpenAPITools.Model;
 
 namespace Example
 {
-    public class ApiUserIdGetExample
+    public class ApiUserGetExample
     {
         public static void Main()
         {
@@ -36,16 +36,15 @@ namespace Example
             // config.AddApiKeyPrefix("Authorization", "Bearer");
 
             var apiInstance = new UserApi(config);
-            var id = new Guid(); // Guid | 
 
             try
             {
-                User result = apiInstance.ApiUserIdGet(id);
+                User result = apiInstance.ApiUserGet();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling UserApi.ApiUserIdGet: " + e.Message );
+                Debug.Print("Exception when calling UserApi.ApiUserGet: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -55,10 +54,7 @@ namespace Example
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | [**Guid**](Guid.md)|  | 
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -80,9 +76,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="apiuseridput"></a>
-# **ApiUserIdPut**
-> User ApiUserIdPut (Guid id, User user = null)
+<a name="apiuserput"></a>
+# **ApiUserPut**
+> User ApiUserPut (User user = null)
 
 
 
@@ -96,7 +92,7 @@ using Org.OpenAPITools.Model;
 
 namespace Example
 {
-    public class ApiUserIdPutExample
+    public class ApiUserPutExample
     {
         public static void Main()
         {
@@ -108,17 +104,16 @@ namespace Example
             // config.AddApiKeyPrefix("Authorization", "Bearer");
 
             var apiInstance = new UserApi(config);
-            var id = new Guid(); // Guid | 
             var user = new User(); // User |  (optional) 
 
             try
             {
-                User result = apiInstance.ApiUserIdPut(id, user);
+                User result = apiInstance.ApiUserPut(user);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling UserApi.ApiUserIdPut: " + e.Message );
+                Debug.Print("Exception when calling UserApi.ApiUserPut: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -131,7 +126,6 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**Guid**](Guid.md)|  | 
  **user** | [**User**](User.md)|  | [optional] 
 
 ### Return type

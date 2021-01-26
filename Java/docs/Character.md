@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **server** | [**Campaign**](Campaign.md) |  |  [optional]
 **name** | **String** |  | 
 **level** | **Integer** |  | 
+**inspiration** | **Integer** |  | 
 **currency** | **Integer** |  | 
 **format** | **String** |  |  [optional] [readonly]
 **experience** | **Integer** |  | 

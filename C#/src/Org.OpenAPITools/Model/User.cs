@@ -40,20 +40,20 @@ namespace Org.OpenAPITools.Model
         /// Initializes a new instance of the <see cref="User" /> class.
         /// </summary>
         /// <param name="id">id.</param>
-        /// <param name="discordId">discordId.</param>
         /// <param name="givenName">givenName.</param>
         /// <param name="familyName">familyName.</param>
         /// <param name="dateCreated">dateCreated (required).</param>
         /// <param name="characters">characters.</param>
+        /// <param name="credentials">credentials.</param>
         /// <param name="campaignsOwned">campaignsOwned.</param>
-        public User(Guid id = default(Guid), long discordId = default(long), string givenName = default(string), string familyName = default(string), DateTime dateCreated = default(DateTime), List<Character> characters = default(List<Character>), List<Campaign> campaignsOwned = default(List<Campaign>))
+        public User(Guid id = default(Guid), string givenName = default(string), string familyName = default(string), DateTime dateCreated = default(DateTime), List<Character> characters = default(List<Character>), List<UserCredentials> credentials = default(List<UserCredentials>), List<Campaign> campaignsOwned = default(List<Campaign>))
         {
             this.DateCreated = dateCreated;
             this.Id = id;
-            this.DiscordId = discordId;
             this.GivenName = givenName;
             this.FamilyName = familyName;
             this.Characters = characters;
+            this.Credentials = credentials;
             this.CampaignsOwned = campaignsOwned;
         }
 
@@ -62,12 +62,6 @@ namespace Org.OpenAPITools.Model
         /// </summary>
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public Guid Id { get; set; }
-
-        /// <summary>
-        /// Gets or Sets DiscordId
-        /// </summary>
-        [DataMember(Name = "discordId", EmitDefaultValue = false)]
-        public long DiscordId { get; set; }
 
         /// <summary>
         /// Gets or Sets GivenName
@@ -94,6 +88,12 @@ namespace Org.OpenAPITools.Model
         public List<Character> Characters { get; set; }
 
         /// <summary>
+        /// Gets or Sets Credentials
+        /// </summary>
+        [DataMember(Name = "credentials", EmitDefaultValue = true)]
+        public List<UserCredentials> Credentials { get; set; }
+
+        /// <summary>
         /// Gets or Sets CampaignsOwned
         /// </summary>
         [DataMember(Name = "campaignsOwned", EmitDefaultValue = true)]
@@ -108,11 +108,11 @@ namespace Org.OpenAPITools.Model
             var sb = new StringBuilder();
             sb.Append("class User {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  DiscordId: ").Append(DiscordId).Append("\n");
             sb.Append("  GivenName: ").Append(GivenName).Append("\n");
             sb.Append("  FamilyName: ").Append(FamilyName).Append("\n");
             sb.Append("  DateCreated: ").Append(DateCreated).Append("\n");
             sb.Append("  Characters: ").Append(Characters).Append("\n");
+            sb.Append("  Credentials: ").Append(Credentials).Append("\n");
             sb.Append("  CampaignsOwned: ").Append(CampaignsOwned).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -154,10 +154,6 @@ namespace Org.OpenAPITools.Model
                     this.Id.Equals(input.Id))
                 ) && 
                 (
-                    this.DiscordId == input.DiscordId ||
-                    this.DiscordId.Equals(input.DiscordId)
-                ) && 
-                (
                     this.GivenName == input.GivenName ||
                     (this.GivenName != null &&
                     this.GivenName.Equals(input.GivenName))
@@ -179,6 +175,12 @@ namespace Org.OpenAPITools.Model
                     this.Characters.SequenceEqual(input.Characters)
                 ) && 
                 (
+                    this.Credentials == input.Credentials ||
+                    this.Credentials != null &&
+                    input.Credentials != null &&
+                    this.Credentials.SequenceEqual(input.Credentials)
+                ) && 
+                (
                     this.CampaignsOwned == input.CampaignsOwned ||
                     this.CampaignsOwned != null &&
                     input.CampaignsOwned != null &&
@@ -197,7 +199,6 @@ namespace Org.OpenAPITools.Model
                 int hashCode = 41;
                 if (this.Id != null)
                     hashCode = hashCode * 59 + this.Id.GetHashCode();
-                hashCode = hashCode * 59 + this.DiscordId.GetHashCode();
                 if (this.GivenName != null)
                     hashCode = hashCode * 59 + this.GivenName.GetHashCode();
                 if (this.FamilyName != null)
@@ -206,6 +207,8 @@ namespace Org.OpenAPITools.Model
                     hashCode = hashCode * 59 + this.DateCreated.GetHashCode();
                 if (this.Characters != null)
                     hashCode = hashCode * 59 + this.Characters.GetHashCode();
+                if (this.Credentials != null)
+                    hashCode = hashCode * 59 + this.Credentials.GetHashCode();
                 if (this.CampaignsOwned != null)
                     hashCode = hashCode * 59 + this.CampaignsOwned.GetHashCode();
                 return hashCode;

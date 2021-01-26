@@ -14,6 +14,7 @@
 import ApiClient from '../ApiClient';
 import Campaign from './Campaign';
 import Character from './Character';
+import UserCredentials from './UserCredentials';
 
 /**
  * The User model module.
@@ -54,9 +55,6 @@ class User {
             if (data.hasOwnProperty('id')) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('discordId')) {
-                obj['discordId'] = ApiClient.convertToType(data['discordId'], 'Number');
-            }
             if (data.hasOwnProperty('givenName')) {
                 obj['givenName'] = ApiClient.convertToType(data['givenName'], 'String');
             }
@@ -68,6 +66,9 @@ class User {
             }
             if (data.hasOwnProperty('characters')) {
                 obj['characters'] = ApiClient.convertToType(data['characters'], [Character]);
+            }
+            if (data.hasOwnProperty('credentials')) {
+                obj['credentials'] = ApiClient.convertToType(data['credentials'], [UserCredentials]);
             }
             if (data.hasOwnProperty('campaignsOwned')) {
                 obj['campaignsOwned'] = ApiClient.convertToType(data['campaignsOwned'], [Campaign]);
@@ -83,11 +84,6 @@ class User {
  * @member {String} id
  */
 User.prototype['id'] = undefined;
-
-/**
- * @member {Number} discordId
- */
-User.prototype['discordId'] = undefined;
 
 /**
  * @member {String} givenName
@@ -108,6 +104,11 @@ User.prototype['dateCreated'] = undefined;
  * @member {Array.<module:model/Character>} characters
  */
 User.prototype['characters'] = undefined;
+
+/**
+ * @member {Array.<module:model/UserCredentials>} credentials
+ */
+User.prototype['credentials'] = undefined;
 
 /**
  * @member {Array.<module:model/Campaign>} campaignsOwned

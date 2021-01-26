@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="apiRegistrationPost"></a>
 # **apiRegistrationPost**
-> apiRegistrationPost(registrationRequest)
+> apiRegistrationPost()
 
 
 
@@ -35,9 +35,8 @@ public class Example {
     //Bearer.setApiKeyPrefix("Token");
 
     RegistrationApi apiInstance = new RegistrationApi(defaultClient);
-    RegistrationRequest registrationRequest = new RegistrationRequest(); // RegistrationRequest | 
     try {
-      apiInstance.apiRegistrationPost(registrationRequest);
+      apiInstance.apiRegistrationPost();
     } catch (ApiException e) {
       System.err.println("Exception when calling RegistrationApi#apiRegistrationPost");
       System.err.println("Status code: " + e.getCode());
@@ -50,10 +49,7 @@ public class Example {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **registrationRequest** | [**RegistrationRequest**](RegistrationRequest.md)|  | [optional]
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -65,7 +61,7 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: Not defined
 
 ### HTTP response details

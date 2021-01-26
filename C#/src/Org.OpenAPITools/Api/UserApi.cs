@@ -30,9 +30,8 @@ namespace Org.OpenAPITools.Api
         /// 
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
         /// <returns>User</returns>
-        User ApiUserIdGet(Guid id);
+        User ApiUserGet();
 
         /// <summary>
         /// 
@@ -41,17 +40,15 @@ namespace Org.OpenAPITools.Api
         /// 
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
         /// <returns>ApiResponse of User</returns>
-        ApiResponse<User> ApiUserIdGetWithHttpInfo(Guid id);
+        ApiResponse<User> ApiUserGetWithHttpInfo();
         /// <summary>
         /// 
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
         /// <param name="user"> (optional)</param>
         /// <returns>User</returns>
-        User ApiUserIdPut(Guid id, User user = default(User));
+        User ApiUserPut(User user = default(User));
 
         /// <summary>
         /// 
@@ -60,10 +57,9 @@ namespace Org.OpenAPITools.Api
         /// 
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
         /// <param name="user"> (optional)</param>
         /// <returns>ApiResponse of User</returns>
-        ApiResponse<User> ApiUserIdPutWithHttpInfo(Guid id, User user = default(User));
+        ApiResponse<User> ApiUserPutWithHttpInfo(User user = default(User));
         #endregion Synchronous Operations
     }
 
@@ -80,10 +76,9 @@ namespace Org.OpenAPITools.Api
         /// 
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of User</returns>
-        System.Threading.Tasks.Task<User> ApiUserIdGetAsync(Guid id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<User> ApiUserGetAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// 
@@ -92,10 +87,9 @@ namespace Org.OpenAPITools.Api
         /// 
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (User)</returns>
-        System.Threading.Tasks.Task<ApiResponse<User>> ApiUserIdGetWithHttpInfoAsync(Guid id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<User>> ApiUserGetWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// 
         /// </summary>
@@ -103,11 +97,10 @@ namespace Org.OpenAPITools.Api
         /// 
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
         /// <param name="user"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of User</returns>
-        System.Threading.Tasks.Task<User> ApiUserIdPutAsync(Guid id, User user = default(User), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<User> ApiUserPutAsync(User user = default(User), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// 
@@ -116,11 +109,10 @@ namespace Org.OpenAPITools.Api
         /// 
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
         /// <param name="user"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (User)</returns>
-        System.Threading.Tasks.Task<ApiResponse<User>> ApiUserIdPutWithHttpInfoAsync(Guid id, User user = default(User), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<User>> ApiUserPutWithHttpInfoAsync(User user = default(User), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -245,11 +237,10 @@ namespace Org.OpenAPITools.Api
         ///  
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
         /// <returns>User</returns>
-        public User ApiUserIdGet(Guid id)
+        public User ApiUserGet()
         {
-            Org.OpenAPITools.Client.ApiResponse<User> localVarResponse = ApiUserIdGetWithHttpInfo(id);
+            Org.OpenAPITools.Client.ApiResponse<User> localVarResponse = ApiUserGetWithHttpInfo();
             return localVarResponse.Data;
         }
 
@@ -257,9 +248,8 @@ namespace Org.OpenAPITools.Api
         ///  
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
         /// <returns>ApiResponse of User</returns>
-        public Org.OpenAPITools.Client.ApiResponse<User> ApiUserIdGetWithHttpInfo(Guid id)
+        public Org.OpenAPITools.Client.ApiResponse<User> ApiUserGetWithHttpInfo()
         {
             Org.OpenAPITools.Client.RequestOptions localVarRequestOptions = new Org.OpenAPITools.Client.RequestOptions();
 
@@ -277,7 +267,6 @@ namespace Org.OpenAPITools.Api
             var localVarAccept = Org.OpenAPITools.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("id", Org.OpenAPITools.Client.ClientUtils.ParameterToString(id)); // path parameter
 
             // authentication (Bearer) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
@@ -286,11 +275,11 @@ namespace Org.OpenAPITools.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<User>("/api/user/{id}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<User>("/api/user", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("ApiUserIdGet", localVarResponse);
+                Exception _exception = this.ExceptionFactory("ApiUserGet", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -301,12 +290,11 @@ namespace Org.OpenAPITools.Api
         ///  
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of User</returns>
-        public async System.Threading.Tasks.Task<User> ApiUserIdGetAsync(Guid id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<User> ApiUserGetAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Org.OpenAPITools.Client.ApiResponse<User> localVarResponse = await ApiUserIdGetWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
+            Org.OpenAPITools.Client.ApiResponse<User> localVarResponse = await ApiUserGetWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -314,10 +302,9 @@ namespace Org.OpenAPITools.Api
         ///  
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (User)</returns>
-        public async System.Threading.Tasks.Task<Org.OpenAPITools.Client.ApiResponse<User>> ApiUserIdGetWithHttpInfoAsync(Guid id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Org.OpenAPITools.Client.ApiResponse<User>> ApiUserGetWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Org.OpenAPITools.Client.RequestOptions localVarRequestOptions = new Org.OpenAPITools.Client.RequestOptions();
@@ -337,7 +324,6 @@ namespace Org.OpenAPITools.Api
             var localVarAccept = Org.OpenAPITools.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("id", Org.OpenAPITools.Client.ClientUtils.ParameterToString(id)); // path parameter
 
             // authentication (Bearer) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
@@ -347,11 +333,11 @@ namespace Org.OpenAPITools.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<User>("/api/user/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<User>("/api/user", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("ApiUserIdGet", localVarResponse);
+                Exception _exception = this.ExceptionFactory("ApiUserGet", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -362,12 +348,11 @@ namespace Org.OpenAPITools.Api
         ///  
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
         /// <param name="user"> (optional)</param>
         /// <returns>User</returns>
-        public User ApiUserIdPut(Guid id, User user = default(User))
+        public User ApiUserPut(User user = default(User))
         {
-            Org.OpenAPITools.Client.ApiResponse<User> localVarResponse = ApiUserIdPutWithHttpInfo(id, user);
+            Org.OpenAPITools.Client.ApiResponse<User> localVarResponse = ApiUserPutWithHttpInfo(user);
             return localVarResponse.Data;
         }
 
@@ -375,10 +360,9 @@ namespace Org.OpenAPITools.Api
         ///  
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
         /// <param name="user"> (optional)</param>
         /// <returns>ApiResponse of User</returns>
-        public Org.OpenAPITools.Client.ApiResponse<User> ApiUserIdPutWithHttpInfo(Guid id, User user = default(User))
+        public Org.OpenAPITools.Client.ApiResponse<User> ApiUserPutWithHttpInfo(User user = default(User))
         {
             Org.OpenAPITools.Client.RequestOptions localVarRequestOptions = new Org.OpenAPITools.Client.RequestOptions();
 
@@ -397,7 +381,6 @@ namespace Org.OpenAPITools.Api
             var localVarAccept = Org.OpenAPITools.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("id", Org.OpenAPITools.Client.ClientUtils.ParameterToString(id)); // path parameter
             localVarRequestOptions.Data = user;
 
             // authentication (Bearer) required
@@ -407,11 +390,11 @@ namespace Org.OpenAPITools.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Put<User>("/api/user/{id}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Put<User>("/api/user", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("ApiUserIdPut", localVarResponse);
+                Exception _exception = this.ExceptionFactory("ApiUserPut", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -422,13 +405,12 @@ namespace Org.OpenAPITools.Api
         ///  
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
         /// <param name="user"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of User</returns>
-        public async System.Threading.Tasks.Task<User> ApiUserIdPutAsync(Guid id, User user = default(User), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<User> ApiUserPutAsync(User user = default(User), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Org.OpenAPITools.Client.ApiResponse<User> localVarResponse = await ApiUserIdPutWithHttpInfoAsync(id, user, cancellationToken).ConfigureAwait(false);
+            Org.OpenAPITools.Client.ApiResponse<User> localVarResponse = await ApiUserPutWithHttpInfoAsync(user, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -436,11 +418,10 @@ namespace Org.OpenAPITools.Api
         ///  
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
         /// <param name="user"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (User)</returns>
-        public async System.Threading.Tasks.Task<Org.OpenAPITools.Client.ApiResponse<User>> ApiUserIdPutWithHttpInfoAsync(Guid id, User user = default(User), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Org.OpenAPITools.Client.ApiResponse<User>> ApiUserPutWithHttpInfoAsync(User user = default(User), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Org.OpenAPITools.Client.RequestOptions localVarRequestOptions = new Org.OpenAPITools.Client.RequestOptions();
@@ -461,7 +442,6 @@ namespace Org.OpenAPITools.Api
             var localVarAccept = Org.OpenAPITools.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("id", Org.OpenAPITools.Client.ClientUtils.ParameterToString(id)); // path parameter
             localVarRequestOptions.Data = user;
 
             // authentication (Bearer) required
@@ -472,11 +452,11 @@ namespace Org.OpenAPITools.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.PutAsync<User>("/api/user/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PutAsync<User>("/api/user", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("ApiUserIdPut", localVarResponse);
+                Exception _exception = this.ExceptionFactory("ApiUserPut", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

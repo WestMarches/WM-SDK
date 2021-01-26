@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## apiRegistrationPost
 
-> apiRegistrationPost(opts)
+> apiRegistrationPost()
 
 
 
@@ -26,10 +26,7 @@ Bearer.apiKey = 'YOUR API KEY';
 //Bearer.apiKeyPrefix = 'Token';
 
 let apiInstance = new WestMarchesApi.RegistrationApi();
-let opts = {
-  'registrationRequest': new WestMarchesApi.RegistrationRequest() // RegistrationRequest | 
-};
-apiInstance.apiRegistrationPost(opts, (error, data, response) => {
+apiInstance.apiRegistrationPost((error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -40,10 +37,7 @@ apiInstance.apiRegistrationPost(opts, (error, data, response) => {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **registrationRequest** | [**RegistrationRequest**](RegistrationRequest.md)|  | [optional] 
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -55,6 +49,6 @@ null (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: Not defined
 - **Accept**: Not defined
 

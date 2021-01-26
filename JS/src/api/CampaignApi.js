@@ -35,6 +35,41 @@ export default class CampaignApi {
 
 
     /**
+     * Callback function to receive the result of the apiCampaignGet operation.
+     * @callback module:api/CampaignApi~apiCampaignGetCallback
+     * @param {String} error Error message, if any.
+     * @param {Array.<module:model/Campaign>} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * @param {module:api/CampaignApi~apiCampaignGetCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Array.<module:model/Campaign>}
+     */
+    apiCampaignGet(callback) {
+      let postBody = null;
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['Bearer'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = [Campaign];
+      return this.apiClient.callApi(
+        '/api/campaign', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the apiCampaignIdGet operation.
      * @callback module:api/CampaignApi~apiCampaignIdGetCallback
      * @param {String} error Error message, if any.
@@ -76,29 +111,23 @@ export default class CampaignApi {
     }
 
     /**
-     * Callback function to receive the result of the apiCampaignIdPost operation.
-     * @callback module:api/CampaignApi~apiCampaignIdPostCallback
+     * Callback function to receive the result of the apiCampaignPost operation.
+     * @callback module:api/CampaignApi~apiCampaignPostCallback
      * @param {String} error Error message, if any.
      * @param data This operation does not return a value.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * @param {String} id 
      * @param {Object} opts Optional parameters
      * @param {module:model/Campaign} opts.campaign 
-     * @param {module:api/CampaignApi~apiCampaignIdPostCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/CampaignApi~apiCampaignPostCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    apiCampaignIdPost(id, opts, callback) {
+    apiCampaignPost(opts, callback) {
       opts = opts || {};
       let postBody = opts['campaign'];
-      // verify the required parameter 'id' is set
-      if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling apiCampaignIdPost");
-      }
 
       let pathParams = {
-        'id': id
       };
       let queryParams = {
       };
@@ -112,37 +141,31 @@ export default class CampaignApi {
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/campaign/{id}', 'POST',
+        '/api/campaign', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
     }
 
     /**
-     * Callback function to receive the result of the apiCampaignIdPut operation.
-     * @callback module:api/CampaignApi~apiCampaignIdPutCallback
+     * Callback function to receive the result of the apiCampaignPut operation.
+     * @callback module:api/CampaignApi~apiCampaignPutCallback
      * @param {String} error Error message, if any.
      * @param {module:model/Campaign} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * @param {String} id 
      * @param {Object} opts Optional parameters
      * @param {module:model/Campaign} opts.campaign 
-     * @param {module:api/CampaignApi~apiCampaignIdPutCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/CampaignApi~apiCampaignPutCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Campaign}
      */
-    apiCampaignIdPut(id, opts, callback) {
+    apiCampaignPut(opts, callback) {
       opts = opts || {};
       let postBody = opts['campaign'];
-      // verify the required parameter 'id' is set
-      if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling apiCampaignIdPut");
-      }
 
       let pathParams = {
-        'id': id
       };
       let queryParams = {
       };
@@ -156,7 +179,7 @@ export default class CampaignApi {
       let accepts = ['application/json'];
       let returnType = Campaign;
       return this.apiClient.callApi(
-        '/api/campaign/{id}', 'PUT',
+        '/api/campaign', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

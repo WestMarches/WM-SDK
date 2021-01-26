@@ -4,10 +4,56 @@ All URIs are relative to *http://localhost:5000*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**apiCampaignGet**](CampaignApi.md#apiCampaignGet) | **GET** /api/campaign | 
 [**apiCampaignIdGet**](CampaignApi.md#apiCampaignIdGet) | **GET** /api/campaign/{id} | 
-[**apiCampaignIdPost**](CampaignApi.md#apiCampaignIdPost) | **POST** /api/campaign/{id} | 
-[**apiCampaignIdPut**](CampaignApi.md#apiCampaignIdPut) | **PUT** /api/campaign/{id} | 
+[**apiCampaignPost**](CampaignApi.md#apiCampaignPost) | **POST** /api/campaign | 
+[**apiCampaignPut**](CampaignApi.md#apiCampaignPut) | **PUT** /api/campaign | 
 
+
+
+## apiCampaignGet
+
+> [Campaign] apiCampaignGet()
+
+
+
+### Example
+
+```javascript
+import WestMarchesApi from 'west_marches_api';
+let defaultClient = WestMarchesApi.ApiClient.instance;
+// Configure API key authorization: Bearer
+let Bearer = defaultClient.authentications['Bearer'];
+Bearer.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Bearer.apiKeyPrefix = 'Token';
+
+let apiInstance = new WestMarchesApi.CampaignApi();
+apiInstance.apiCampaignGet((error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**[Campaign]**](Campaign.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
 ## apiCampaignIdGet
@@ -59,9 +105,9 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
-## apiCampaignIdPost
+## apiCampaignPost
 
-> apiCampaignIdPost(id, opts)
+> apiCampaignPost(opts)
 
 
 
@@ -77,11 +123,10 @@ Bearer.apiKey = 'YOUR API KEY';
 //Bearer.apiKeyPrefix = 'Token';
 
 let apiInstance = new WestMarchesApi.CampaignApi();
-let id = null; // String | 
 let opts = {
   'campaign': new WestMarchesApi.Campaign() // Campaign | 
 };
-apiInstance.apiCampaignIdPost(id, opts, (error, data, response) => {
+apiInstance.apiCampaignPost(opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -95,7 +140,6 @@ apiInstance.apiCampaignIdPost(id, opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**String**](.md)|  | 
  **campaign** | [**Campaign**](Campaign.md)|  | [optional] 
 
 ### Return type
@@ -112,9 +156,9 @@ null (empty response body)
 - **Accept**: Not defined
 
 
-## apiCampaignIdPut
+## apiCampaignPut
 
-> Campaign apiCampaignIdPut(id, opts)
+> Campaign apiCampaignPut(opts)
 
 
 
@@ -130,11 +174,10 @@ Bearer.apiKey = 'YOUR API KEY';
 //Bearer.apiKeyPrefix = 'Token';
 
 let apiInstance = new WestMarchesApi.CampaignApi();
-let id = null; // String | 
 let opts = {
   'campaign': new WestMarchesApi.Campaign() // Campaign | 
 };
-apiInstance.apiCampaignIdPut(id, opts, (error, data, response) => {
+apiInstance.apiCampaignPut(opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -148,7 +191,6 @@ apiInstance.apiCampaignIdPut(id, opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**String**](.md)|  | 
  **campaign** | [**Campaign**](Campaign.md)|  | [optional] 
 
 ### Return type

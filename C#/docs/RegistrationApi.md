@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="apiregistrationpost"></a>
 # **ApiRegistrationPost**
-> void ApiRegistrationPost (RegistrationRequest registrationRequest = null)
+> void ApiRegistrationPost ()
 
 
 
@@ -35,11 +35,10 @@ namespace Example
             // config.AddApiKeyPrefix("Authorization", "Bearer");
 
             var apiInstance = new RegistrationApi(config);
-            var registrationRequest = new RegistrationRequest(); // RegistrationRequest |  (optional) 
 
             try
             {
-                apiInstance.ApiRegistrationPost(registrationRequest);
+                apiInstance.ApiRegistrationPost();
             }
             catch (ApiException  e)
             {
@@ -53,10 +52,7 @@ namespace Example
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **registrationRequest** | [**RegistrationRequest**](RegistrationRequest.md)|  | [optional] 
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -68,7 +64,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: Not defined
 
 ### HTTP response details

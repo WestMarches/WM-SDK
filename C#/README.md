@@ -78,16 +78,15 @@ namespace Example
             // config.ApiKeyPrefix.Add("Authorization", "Bearer");
 
             var apiInstance = new CampaignApi(config);
-            var id = new Guid(); // Guid | 
 
             try
             {
-                Campaign result = apiInstance.ApiCampaignIdGet(id);
+                List<Campaign> result = apiInstance.ApiCampaignGet();
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
             {
-                Debug.Print("Exception when calling CampaignApi.ApiCampaignIdGet: " + e.Message );
+                Debug.Print("Exception when calling CampaignApi.ApiCampaignGet: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -104,17 +103,19 @@ All URIs are relative to *http://localhost:5000*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*CampaignApi* | [**ApiCampaignGet**](docs/CampaignApi.md#apicampaignget) | **GET** /api/campaign | 
 *CampaignApi* | [**ApiCampaignIdGet**](docs/CampaignApi.md#apicampaignidget) | **GET** /api/campaign/{id} | 
-*CampaignApi* | [**ApiCampaignIdPost**](docs/CampaignApi.md#apicampaignidpost) | **POST** /api/campaign/{id} | 
-*CampaignApi* | [**ApiCampaignIdPut**](docs/CampaignApi.md#apicampaignidput) | **PUT** /api/campaign/{id} | 
-*CharacterApi* | [**ApiCharacterIdGet**](docs/CharacterApi.md#apicharacteridget) | **GET** /api/character/{id} | 
-*CharacterApi* | [**ApiCharacterMyIdGet**](docs/CharacterApi.md#apicharactermyidget) | **GET** /api/character/my/{id} | 
+*CampaignApi* | [**ApiCampaignPost**](docs/CampaignApi.md#apicampaignpost) | **POST** /api/campaign | 
+*CampaignApi* | [**ApiCampaignPut**](docs/CampaignApi.md#apicampaignput) | **PUT** /api/campaign | 
+*CharacterApi* | [**ApiCharacterDndBeyondIdGet**](docs/CharacterApi.md#apicharacterdndbeyondidget) | **GET** /api/character/dndBeyond/{id} | 
+*CharacterApi* | [**ApiCharacterDndBeyondPost**](docs/CharacterApi.md#apicharacterdndbeyondpost) | **POST** /api/character/dndBeyond | 
+*CharacterApi* | [**ApiCharacterMyGet**](docs/CharacterApi.md#apicharactermyget) | **GET** /api/character/my | 
 *DiscordApi* | [**AddStoreToDiscordServer**](docs/DiscordApi.md#addstoretodiscordserver) | **GET** /api/discord/store/{id} | 
 *DiscordApi* | [**CloseDiscordServer**](docs/DiscordApi.md#closediscordserver) | **GET** /api/discord/close | 
 *DiscordApi* | [**GetIncomingForDiscordServer**](docs/DiscordApi.md#getincomingfordiscordserver) | **GET** /api/discord/stack | 
 *RegistrationApi* | [**ApiRegistrationPost**](docs/RegistrationApi.md#apiregistrationpost) | **POST** /api/registration | 
-*UserApi* | [**ApiUserIdGet**](docs/UserApi.md#apiuseridget) | **GET** /api/user/{id} | 
-*UserApi* | [**ApiUserIdPut**](docs/UserApi.md#apiuseridput) | **PUT** /api/user/{id} | 
+*UserApi* | [**ApiUserGet**](docs/UserApi.md#apiuserget) | **GET** /api/user | 
+*UserApi* | [**ApiUserPut**](docs/UserApi.md#apiuserput) | **PUT** /api/user | 
 
 
 <a name="documentation-for-models"></a>
@@ -126,9 +127,9 @@ Class | Method | HTTP request | Description
  - [Model.GameSystem](docs/GameSystem.md)
  - [Model.Guild](docs/Guild.md)
  - [Model.Item](docs/Item.md)
- - [Model.RegistrationRequest](docs/RegistrationRequest.md)
  - [Model.Stock](docs/Stock.md)
  - [Model.User](docs/User.md)
+ - [Model.UserCredentials](docs/UserCredentials.md)
  - [Model.UserRoles](docs/UserRoles.md)
 
 

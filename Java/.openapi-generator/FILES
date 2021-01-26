@@ -14,10 +14,10 @@ docs/GameSystem.md
 docs/Guild.md
 docs/Item.md
 docs/RegistrationApi.md
-docs/RegistrationRequest.md
 docs/Stock.md
 docs/User.md
 docs/UserApi.md
+docs/UserCredentials.md
 docs/UserRoles.md
 git_push.sh
 gradle.properties
@@ -56,7 +56,8 @@ src/main/java/org/openapitools/client/model/Character.java
 src/main/java/org/openapitools/client/model/GameSystem.java
 src/main/java/org/openapitools/client/model/Guild.java
 src/main/java/org/openapitools/client/model/Item.java
-src/main/java/org/openapitools/client/model/RegistrationRequest.java
 src/main/java/org/openapitools/client/model/Stock.java
 src/main/java/org/openapitools/client/model/User.java
+src/main/java/org/openapitools/client/model/UserCredentials.java
 src/main/java/org/openapitools/client/model/UserRoles.java
+src/test/java/org/openapitools/client/model/UserCredentialsTest.java

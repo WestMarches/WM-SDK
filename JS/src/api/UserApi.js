@@ -35,27 +35,21 @@ export default class UserApi {
 
 
     /**
-     * Callback function to receive the result of the apiUserIdGet operation.
-     * @callback module:api/UserApi~apiUserIdGetCallback
+     * Callback function to receive the result of the apiUserGet operation.
+     * @callback module:api/UserApi~apiUserGetCallback
      * @param {String} error Error message, if any.
      * @param {module:model/User} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * @param {String} id 
-     * @param {module:api/UserApi~apiUserIdGetCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/UserApi~apiUserGetCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/User}
      */
-    apiUserIdGet(id, callback) {
+    apiUserGet(callback) {
       let postBody = null;
-      // verify the required parameter 'id' is set
-      if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling apiUserIdGet");
-      }
 
       let pathParams = {
-        'id': id
       };
       let queryParams = {
       };
@@ -69,37 +63,31 @@ export default class UserApi {
       let accepts = ['application/json'];
       let returnType = User;
       return this.apiClient.callApi(
-        '/api/user/{id}', 'GET',
+        '/api/user', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
     }
 
     /**
-     * Callback function to receive the result of the apiUserIdPut operation.
-     * @callback module:api/UserApi~apiUserIdPutCallback
+     * Callback function to receive the result of the apiUserPut operation.
+     * @callback module:api/UserApi~apiUserPutCallback
      * @param {String} error Error message, if any.
      * @param {module:model/User} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * @param {String} id 
      * @param {Object} opts Optional parameters
      * @param {module:model/User} opts.user 
-     * @param {module:api/UserApi~apiUserIdPutCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/UserApi~apiUserPutCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/User}
      */
-    apiUserIdPut(id, opts, callback) {
+    apiUserPut(opts, callback) {
       opts = opts || {};
       let postBody = opts['user'];
-      // verify the required parameter 'id' is set
-      if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling apiUserIdPut");
-      }
 
       let pathParams = {
-        'id': id
       };
       let queryParams = {
       };
@@ -113,7 +101,7 @@ export default class UserApi {
       let accepts = ['application/json'];
       let returnType = User;
       return this.apiClient.callApi(
-        '/api/user/{id}', 'PUT',
+        '/api/user', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

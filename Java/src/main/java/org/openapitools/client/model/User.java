@@ -28,20 +28,17 @@ import java.util.List;
 import java.util.UUID;
 import org.openapitools.client.model.Campaign;
 import org.openapitools.client.model.Character;
+import org.openapitools.client.model.UserCredentials;
 import org.threeten.bp.OffsetDateTime;
 
 /**
  * User
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-01-25T17:55:47.969+10:30[Australia/Adelaide]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-01-26T11:34:06.333+10:30[Australia/Adelaide]")
 public class User {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private UUID id;
-
-  public static final String SERIALIZED_NAME_DISCORD_ID = "discordId";
-  @SerializedName(SERIALIZED_NAME_DISCORD_ID)
-  private Long discordId;
 
   public static final String SERIALIZED_NAME_GIVEN_NAME = "givenName";
   @SerializedName(SERIALIZED_NAME_GIVEN_NAME)
@@ -58,6 +55,10 @@ public class User {
   public static final String SERIALIZED_NAME_CHARACTERS = "characters";
   @SerializedName(SERIALIZED_NAME_CHARACTERS)
   private List<Character> characters = null;
+
+  public static final String SERIALIZED_NAME_CREDENTIALS = "credentials";
+  @SerializedName(SERIALIZED_NAME_CREDENTIALS)
+  private List<UserCredentials> credentials = null;
 
   public static final String SERIALIZED_NAME_CAMPAIGNS_OWNED = "campaignsOwned";
   @SerializedName(SERIALIZED_NAME_CAMPAIGNS_OWNED)
@@ -84,29 +85,6 @@ public class User {
 
   public void setId(UUID id) {
     this.id = id;
-  }
-
-
-  public User discordId(Long discordId) {
-    
-    this.discordId = discordId;
-    return this;
-  }
-
-   /**
-   * Get discordId
-   * @return discordId
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public Long getDiscordId() {
-    return discordId;
-  }
-
-
-  public void setDiscordId(Long discordId) {
-    this.discordId = discordId;
   }
 
 
@@ -209,6 +187,37 @@ public class User {
   }
 
 
+  public User credentials(List<UserCredentials> credentials) {
+    
+    this.credentials = credentials;
+    return this;
+  }
+
+  public User addCredentialsItem(UserCredentials credentialsItem) {
+    if (this.credentials == null) {
+      this.credentials = new ArrayList<UserCredentials>();
+    }
+    this.credentials.add(credentialsItem);
+    return this;
+  }
+
+   /**
+   * Get credentials
+   * @return credentials
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<UserCredentials> getCredentials() {
+    return credentials;
+  }
+
+
+  public void setCredentials(List<UserCredentials> credentials) {
+    this.credentials = credentials;
+  }
+
+
   public User campaignsOwned(List<Campaign> campaignsOwned) {
     
     this.campaignsOwned = campaignsOwned;
@@ -250,17 +259,17 @@ public class User {
     }
     User user = (User) o;
     return Objects.equals(this.id, user.id) &&
-        Objects.equals(this.discordId, user.discordId) &&
         Objects.equals(this.givenName, user.givenName) &&
         Objects.equals(this.familyName, user.familyName) &&
         Objects.equals(this.dateCreated, user.dateCreated) &&
         Objects.equals(this.characters, user.characters) &&
+        Objects.equals(this.credentials, user.credentials) &&
         Objects.equals(this.campaignsOwned, user.campaignsOwned);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, discordId, givenName, familyName, dateCreated, characters, campaignsOwned);
+    return Objects.hash(id, givenName, familyName, dateCreated, characters, credentials, campaignsOwned);
   }
 
 
@@ -269,11 +278,11 @@ public class User {
     StringBuilder sb = new StringBuilder();
     sb.append("class User {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    discordId: ").append(toIndentedString(discordId)).append("\n");
     sb.append("    givenName: ").append(toIndentedString(givenName)).append("\n");
     sb.append("    familyName: ").append(toIndentedString(familyName)).append("\n");
     sb.append("    dateCreated: ").append(toIndentedString(dateCreated)).append("\n");
     sb.append("    characters: ").append(toIndentedString(characters)).append("\n");
+    sb.append("    credentials: ").append(toIndentedString(credentials)).append("\n");
     sb.append("    campaignsOwned: ").append(toIndentedString(campaignsOwned)).append("\n");
     sb.append("}");
     return sb.toString();

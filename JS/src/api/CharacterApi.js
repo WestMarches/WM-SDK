@@ -35,8 +35,8 @@ export default class CharacterApi {
 
 
     /**
-     * Callback function to receive the result of the apiCharacterIdGet operation.
-     * @callback module:api/CharacterApi~apiCharacterIdGetCallback
+     * Callback function to receive the result of the apiCharacterDndBeyondIdGet operation.
+     * @callback module:api/CharacterApi~apiCharacterDndBeyondIdGetCallback
      * @param {String} error Error message, if any.
      * @param {String} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
@@ -44,14 +44,14 @@ export default class CharacterApi {
 
     /**
      * @param {Number} id 
-     * @param {module:api/CharacterApi~apiCharacterIdGetCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/CharacterApi~apiCharacterDndBeyondIdGetCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link String}
      */
-    apiCharacterIdGet(id, callback) {
+    apiCharacterDndBeyondIdGet(id, callback) {
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling apiCharacterIdGet");
+        throw new Error("Missing the required parameter 'id' when calling apiCharacterDndBeyondIdGet");
       }
 
       let pathParams = {
@@ -69,34 +69,66 @@ export default class CharacterApi {
       let accepts = ['application/json'];
       let returnType = 'String';
       return this.apiClient.callApi(
-        '/api/character/{id}', 'GET',
+        '/api/character/dndBeyond/{id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
     }
 
     /**
-     * Callback function to receive the result of the apiCharacterMyIdGet operation.
-     * @callback module:api/CharacterApi~apiCharacterMyIdGetCallback
+     * Callback function to receive the result of the apiCharacterDndBeyondPost operation.
+     * @callback module:api/CharacterApi~apiCharacterDndBeyondPostCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * @param {Object} opts Optional parameters
+     * @param {Number} opts.id 
+     * @param {module:api/CharacterApi~apiCharacterDndBeyondPostCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    apiCharacterDndBeyondPost(opts, callback) {
+      opts = opts || {};
+      let postBody = null;
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'id': opts['id']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['Bearer'];
+      let contentTypes = [];
+      let accepts = [];
+      let returnType = null;
+      return this.apiClient.callApi(
+        '/api/character/dndBeyond', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the apiCharacterMyGet operation.
+     * @callback module:api/CharacterApi~apiCharacterMyGetCallback
      * @param {String} error Error message, if any.
      * @param {Array.<module:model/Character>} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * @param {String} id 
-     * @param {module:api/CharacterApi~apiCharacterMyIdGetCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/CharacterApi~apiCharacterMyGetCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/Character>}
      */
-    apiCharacterMyIdGet(id, callback) {
+    apiCharacterMyGet(callback) {
       let postBody = null;
-      // verify the required parameter 'id' is set
-      if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling apiCharacterMyIdGet");
-      }
 
       let pathParams = {
-        'id': id
       };
       let queryParams = {
       };
@@ -110,7 +142,7 @@ export default class CharacterApi {
       let accepts = ['application/json'];
       let returnType = [Character];
       return this.apiClient.callApi(
-        '/api/character/my/{id}', 'GET',
+        '/api/character/my', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

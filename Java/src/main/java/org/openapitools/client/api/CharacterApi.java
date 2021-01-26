@@ -28,7 +28,6 @@ import java.io.IOException;
 
 
 import org.openapitools.client.model.Character;
-import java.util.UUID;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -56,7 +55,7 @@ public class CharacterApi {
     }
 
     /**
-     * Build call for apiCharacterIdGet
+     * Build call for apiCharacterDndBeyondIdGet
      * @param id  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -67,11 +66,11 @@ public class CharacterApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiCharacterIdGetCall(Long id, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiCharacterDndBeyondIdGetCall(Long id, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/character/{id}"
+        String localVarPath = "/api/character/dndBeyond/{id}"
             .replaceAll("\\{" + "id" + "\\}", localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -99,15 +98,15 @@ public class CharacterApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiCharacterIdGetValidateBeforeCall(Long id, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call apiCharacterDndBeyondIdGetValidateBeforeCall(Long id, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'id' is set
         if (id == null) {
-            throw new ApiException("Missing the required parameter 'id' when calling apiCharacterIdGet(Async)");
+            throw new ApiException("Missing the required parameter 'id' when calling apiCharacterDndBeyondIdGet(Async)");
         }
         
 
-        okhttp3.Call localVarCall = apiCharacterIdGetCall(id, _callback);
+        okhttp3.Call localVarCall = apiCharacterDndBeyondIdGetCall(id, _callback);
         return localVarCall;
 
     }
@@ -124,8 +123,8 @@ public class CharacterApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public String apiCharacterIdGet(Long id) throws ApiException {
-        ApiResponse<String> localVarResp = apiCharacterIdGetWithHttpInfo(id);
+    public String apiCharacterDndBeyondIdGet(Long id) throws ApiException {
+        ApiResponse<String> localVarResp = apiCharacterDndBeyondIdGetWithHttpInfo(id);
         return localVarResp.getData();
     }
 
@@ -141,8 +140,8 @@ public class CharacterApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<String> apiCharacterIdGetWithHttpInfo(Long id) throws ApiException {
-        okhttp3.Call localVarCall = apiCharacterIdGetValidateBeforeCall(id, null);
+    public ApiResponse<String> apiCharacterDndBeyondIdGetWithHttpInfo(Long id) throws ApiException {
+        okhttp3.Call localVarCall = apiCharacterDndBeyondIdGetValidateBeforeCall(id, null);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -160,16 +159,16 @@ public class CharacterApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiCharacterIdGetAsync(Long id, final ApiCallback<String> _callback) throws ApiException {
+    public okhttp3.Call apiCharacterDndBeyondIdGetAsync(Long id, final ApiCallback<String> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiCharacterIdGetValidateBeforeCall(id, _callback);
+        okhttp3.Call localVarCall = apiCharacterDndBeyondIdGetValidateBeforeCall(id, _callback);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
-     * Build call for apiCharacterMyIdGet
-     * @param id  (required)
+     * Build call for apiCharacterDndBeyondPost
+     * @param id  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -179,12 +178,116 @@ public class CharacterApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiCharacterMyIdGetCall(UUID id, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiCharacterDndBeyondPostCall(Long id, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/character/my/{id}"
-            .replaceAll("\\{" + "id" + "\\}", localVarApiClient.escapeString(id.toString()));
+        String localVarPath = "/api/character/dndBeyond";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (id != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("id", id));
+        }
+
+        final String[] localVarAccepts = {
+            
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "Bearer" };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call apiCharacterDndBeyondPostValidateBeforeCall(Long id, final ApiCallback _callback) throws ApiException {
+        
+
+        okhttp3.Call localVarCall = apiCharacterDndBeyondPostCall(id, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * 
+     * 
+     * @param id  (optional)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     </table>
+     */
+    public void apiCharacterDndBeyondPost(Long id) throws ApiException {
+        apiCharacterDndBeyondPostWithHttpInfo(id);
+    }
+
+    /**
+     * 
+     * 
+     * @param id  (optional)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> apiCharacterDndBeyondPostWithHttpInfo(Long id) throws ApiException {
+        okhttp3.Call localVarCall = apiCharacterDndBeyondPostValidateBeforeCall(id, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param id  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call apiCharacterDndBeyondPostAsync(Long id, final ApiCallback<Void> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = apiCharacterDndBeyondPostValidateBeforeCall(id, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for apiCharacterMyGet
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call apiCharacterMyGetCall(final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/api/character/my";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -211,15 +314,10 @@ public class CharacterApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiCharacterMyIdGetValidateBeforeCall(UUID id, final ApiCallback _callback) throws ApiException {
-        
-        // verify the required parameter 'id' is set
-        if (id == null) {
-            throw new ApiException("Missing the required parameter 'id' when calling apiCharacterMyIdGet(Async)");
-        }
+    private okhttp3.Call apiCharacterMyGetValidateBeforeCall(final ApiCallback _callback) throws ApiException {
         
 
-        okhttp3.Call localVarCall = apiCharacterMyIdGetCall(id, _callback);
+        okhttp3.Call localVarCall = apiCharacterMyGetCall(_callback);
         return localVarCall;
 
     }
@@ -227,7 +325,6 @@ public class CharacterApi {
     /**
      * 
      * 
-     * @param id  (required)
      * @return List&lt;Character&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -236,15 +333,14 @@ public class CharacterApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public List<Character> apiCharacterMyIdGet(UUID id) throws ApiException {
-        ApiResponse<List<Character>> localVarResp = apiCharacterMyIdGetWithHttpInfo(id);
+    public List<Character> apiCharacterMyGet() throws ApiException {
+        ApiResponse<List<Character>> localVarResp = apiCharacterMyGetWithHttpInfo();
         return localVarResp.getData();
     }
 
     /**
      * 
      * 
-     * @param id  (required)
      * @return ApiResponse&lt;List&lt;Character&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -253,8 +349,8 @@ public class CharacterApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<Character>> apiCharacterMyIdGetWithHttpInfo(UUID id) throws ApiException {
-        okhttp3.Call localVarCall = apiCharacterMyIdGetValidateBeforeCall(id, null);
+    public ApiResponse<List<Character>> apiCharacterMyGetWithHttpInfo() throws ApiException {
+        okhttp3.Call localVarCall = apiCharacterMyGetValidateBeforeCall(null);
         Type localVarReturnType = new TypeToken<List<Character>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -262,7 +358,6 @@ public class CharacterApi {
     /**
      *  (asynchronously)
      * 
-     * @param id  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -272,9 +367,9 @@ public class CharacterApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiCharacterMyIdGetAsync(UUID id, final ApiCallback<List<Character>> _callback) throws ApiException {
+    public okhttp3.Call apiCharacterMyGetAsync(final ApiCallback<List<Character>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiCharacterMyIdGetValidateBeforeCall(id, _callback);
+        okhttp3.Call localVarCall = apiCharacterMyGetValidateBeforeCall(_callback);
         Type localVarReturnType = new TypeToken<List<Character>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

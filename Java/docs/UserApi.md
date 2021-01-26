@@ -4,13 +4,13 @@ All URIs are relative to *http://localhost:5000*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**apiUserIdGet**](UserApi.md#apiUserIdGet) | **GET** /api/user/{id} | 
-[**apiUserIdPut**](UserApi.md#apiUserIdPut) | **PUT** /api/user/{id} | 
+[**apiUserGet**](UserApi.md#apiUserGet) | **GET** /api/user | 
+[**apiUserPut**](UserApi.md#apiUserPut) | **PUT** /api/user | 
 
 
-<a name="apiUserIdGet"></a>
-# **apiUserIdGet**
-> User apiUserIdGet(id)
+<a name="apiUserGet"></a>
+# **apiUserGet**
+> User apiUserGet()
 
 
 
@@ -36,12 +36,11 @@ public class Example {
     //Bearer.setApiKeyPrefix("Token");
 
     UserApi apiInstance = new UserApi(defaultClient);
-    UUID id = new UUID(); // UUID | 
     try {
-      User result = apiInstance.apiUserIdGet(id);
+      User result = apiInstance.apiUserGet();
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling UserApi#apiUserIdGet");
+      System.err.println("Exception when calling UserApi#apiUserGet");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -52,10 +51,7 @@ public class Example {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | [**UUID**](.md)|  |
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -75,9 +71,9 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | Success |  -  |
 
-<a name="apiUserIdPut"></a>
-# **apiUserIdPut**
-> User apiUserIdPut(id, user)
+<a name="apiUserPut"></a>
+# **apiUserPut**
+> User apiUserPut(user)
 
 
 
@@ -103,13 +99,12 @@ public class Example {
     //Bearer.setApiKeyPrefix("Token");
 
     UserApi apiInstance = new UserApi(defaultClient);
-    UUID id = new UUID(); // UUID | 
     User user = new User(); // User | 
     try {
-      User result = apiInstance.apiUserIdPut(id, user);
+      User result = apiInstance.apiUserPut(user);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling UserApi#apiUserIdPut");
+      System.err.println("Exception when calling UserApi#apiUserPut");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -123,7 +118,6 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**UUID**](.md)|  |
  **user** | [**User**](User.md)|  | [optional]
 
 ### Return type

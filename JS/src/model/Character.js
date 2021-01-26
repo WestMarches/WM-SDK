@@ -28,14 +28,15 @@ class Character {
      * @alias module:model/Character
      * @param name {String} 
      * @param level {Number} 
+     * @param inspiration {Number} 
      * @param currency {Number} 
      * @param experience {Number} 
      * @param alive {Boolean} 
      * @param readyDate {Date} 
      */
-    constructor(name, level, currency, experience, alive, readyDate) { 
+    constructor(name, level, inspiration, currency, experience, alive, readyDate) { 
         
-        Character.initialize(this, name, level, currency, experience, alive, readyDate);
+        Character.initialize(this, name, level, inspiration, currency, experience, alive, readyDate);
     }
 
     /**
@@ -43,9 +44,10 @@ class Character {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, name, level, currency, experience, alive, readyDate) { 
+    static initialize(obj, name, level, inspiration, currency, experience, alive, readyDate) { 
         obj['name'] = name;
         obj['level'] = level;
+        obj['inspiration'] = inspiration;
         obj['currency'] = currency;
         obj['experience'] = experience;
         obj['alive'] = alive;
@@ -77,6 +79,9 @@ class Character {
             }
             if (data.hasOwnProperty('level')) {
                 obj['level'] = ApiClient.convertToType(data['level'], 'Number');
+            }
+            if (data.hasOwnProperty('inspiration')) {
+                obj['inspiration'] = ApiClient.convertToType(data['inspiration'], 'Number');
             }
             if (data.hasOwnProperty('currency')) {
                 obj['currency'] = ApiClient.convertToType(data['currency'], 'Number');
@@ -136,6 +141,11 @@ Character.prototype['name'] = undefined;
  * @member {Number} level
  */
 Character.prototype['level'] = undefined;
+
+/**
+ * @member {Number} inspiration
+ */
+Character.prototype['inspiration'] = undefined;
 
 /**
  * @member {Number} currency

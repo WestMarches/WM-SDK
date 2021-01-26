@@ -27,7 +27,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import java.util.UUID;
 import org.openapitools.client.model.User;
 
 import java.lang.reflect.Type;
@@ -56,8 +55,7 @@ public class UserApi {
     }
 
     /**
-     * Build call for apiUserIdGet
-     * @param id  (required)
+     * Build call for apiUserGet
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -67,12 +65,11 @@ public class UserApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiUserIdGetCall(UUID id, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiUserGetCall(final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/user/{id}"
-            .replaceAll("\\{" + "id" + "\\}", localVarApiClient.escapeString(id.toString()));
+        String localVarPath = "/api/user";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -99,15 +96,10 @@ public class UserApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiUserIdGetValidateBeforeCall(UUID id, final ApiCallback _callback) throws ApiException {
-        
-        // verify the required parameter 'id' is set
-        if (id == null) {
-            throw new ApiException("Missing the required parameter 'id' when calling apiUserIdGet(Async)");
-        }
+    private okhttp3.Call apiUserGetValidateBeforeCall(final ApiCallback _callback) throws ApiException {
         
 
-        okhttp3.Call localVarCall = apiUserIdGetCall(id, _callback);
+        okhttp3.Call localVarCall = apiUserGetCall(_callback);
         return localVarCall;
 
     }
@@ -115,7 +107,6 @@ public class UserApi {
     /**
      * 
      * 
-     * @param id  (required)
      * @return User
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -124,15 +115,14 @@ public class UserApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public User apiUserIdGet(UUID id) throws ApiException {
-        ApiResponse<User> localVarResp = apiUserIdGetWithHttpInfo(id);
+    public User apiUserGet() throws ApiException {
+        ApiResponse<User> localVarResp = apiUserGetWithHttpInfo();
         return localVarResp.getData();
     }
 
     /**
      * 
      * 
-     * @param id  (required)
      * @return ApiResponse&lt;User&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -141,8 +131,8 @@ public class UserApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<User> apiUserIdGetWithHttpInfo(UUID id) throws ApiException {
-        okhttp3.Call localVarCall = apiUserIdGetValidateBeforeCall(id, null);
+    public ApiResponse<User> apiUserGetWithHttpInfo() throws ApiException {
+        okhttp3.Call localVarCall = apiUserGetValidateBeforeCall(null);
         Type localVarReturnType = new TypeToken<User>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -150,7 +140,6 @@ public class UserApi {
     /**
      *  (asynchronously)
      * 
-     * @param id  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -160,16 +149,15 @@ public class UserApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiUserIdGetAsync(UUID id, final ApiCallback<User> _callback) throws ApiException {
+    public okhttp3.Call apiUserGetAsync(final ApiCallback<User> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiUserIdGetValidateBeforeCall(id, _callback);
+        okhttp3.Call localVarCall = apiUserGetValidateBeforeCall(_callback);
         Type localVarReturnType = new TypeToken<User>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
-     * Build call for apiUserIdPut
-     * @param id  (required)
+     * Build call for apiUserPut
      * @param user  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -180,12 +168,11 @@ public class UserApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiUserIdPutCall(UUID id, User user, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiUserPutCall(User user, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = user;
 
         // create path and map variables
-        String localVarPath = "/api/user/{id}"
-            .replaceAll("\\{" + "id" + "\\}", localVarApiClient.escapeString(id.toString()));
+        String localVarPath = "/api/user";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -212,15 +199,10 @@ public class UserApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiUserIdPutValidateBeforeCall(UUID id, User user, final ApiCallback _callback) throws ApiException {
-        
-        // verify the required parameter 'id' is set
-        if (id == null) {
-            throw new ApiException("Missing the required parameter 'id' when calling apiUserIdPut(Async)");
-        }
+    private okhttp3.Call apiUserPutValidateBeforeCall(User user, final ApiCallback _callback) throws ApiException {
         
 
-        okhttp3.Call localVarCall = apiUserIdPutCall(id, user, _callback);
+        okhttp3.Call localVarCall = apiUserPutCall(user, _callback);
         return localVarCall;
 
     }
@@ -228,7 +210,6 @@ public class UserApi {
     /**
      * 
      * 
-     * @param id  (required)
      * @param user  (optional)
      * @return User
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -238,15 +219,14 @@ public class UserApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public User apiUserIdPut(UUID id, User user) throws ApiException {
-        ApiResponse<User> localVarResp = apiUserIdPutWithHttpInfo(id, user);
+    public User apiUserPut(User user) throws ApiException {
+        ApiResponse<User> localVarResp = apiUserPutWithHttpInfo(user);
         return localVarResp.getData();
     }
 
     /**
      * 
      * 
-     * @param id  (required)
      * @param user  (optional)
      * @return ApiResponse&lt;User&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -256,8 +236,8 @@ public class UserApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<User> apiUserIdPutWithHttpInfo(UUID id, User user) throws ApiException {
-        okhttp3.Call localVarCall = apiUserIdPutValidateBeforeCall(id, user, null);
+    public ApiResponse<User> apiUserPutWithHttpInfo(User user) throws ApiException {
+        okhttp3.Call localVarCall = apiUserPutValidateBeforeCall(user, null);
         Type localVarReturnType = new TypeToken<User>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -265,7 +245,6 @@ public class UserApi {
     /**
      *  (asynchronously)
      * 
-     * @param id  (required)
      * @param user  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -276,9 +255,9 @@ public class UserApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiUserIdPutAsync(UUID id, User user, final ApiCallback<User> _callback) throws ApiException {
+    public okhttp3.Call apiUserPutAsync(User user, final ApiCallback<User> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiUserIdPutValidateBeforeCall(id, user, _callback);
+        okhttp3.Call localVarCall = apiUserPutValidateBeforeCall(user, _callback);
         Type localVarReturnType = new TypeToken<User>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

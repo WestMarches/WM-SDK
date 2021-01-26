@@ -56,6 +56,108 @@ public class CampaignApi {
     }
 
     /**
+     * Build call for apiCampaignGet
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call apiCampaignGetCall(final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/api/campaign";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "Bearer" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call apiCampaignGetValidateBeforeCall(final ApiCallback _callback) throws ApiException {
+        
+
+        okhttp3.Call localVarCall = apiCampaignGetCall(_callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * 
+     * 
+     * @return List&lt;Campaign&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     </table>
+     */
+    public List<Campaign> apiCampaignGet() throws ApiException {
+        ApiResponse<List<Campaign>> localVarResp = apiCampaignGetWithHttpInfo();
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @return ApiResponse&lt;List&lt;Campaign&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<List<Campaign>> apiCampaignGetWithHttpInfo() throws ApiException {
+        okhttp3.Call localVarCall = apiCampaignGetValidateBeforeCall(null);
+        Type localVarReturnType = new TypeToken<List<Campaign>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call apiCampaignGetAsync(final ApiCallback<List<Campaign>> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = apiCampaignGetValidateBeforeCall(_callback);
+        Type localVarReturnType = new TypeToken<List<Campaign>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for apiCampaignIdGet
      * @param id  (required)
      * @param _callback Callback for upload/download progress
@@ -168,8 +270,7 @@ public class CampaignApi {
         return localVarCall;
     }
     /**
-     * Build call for apiCampaignIdPost
-     * @param id  (required)
+     * Build call for apiCampaignPost
      * @param campaign  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -180,12 +281,11 @@ public class CampaignApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiCampaignIdPostCall(UUID id, Campaign campaign, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiCampaignPostCall(Campaign campaign, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = campaign;
 
         // create path and map variables
-        String localVarPath = "/api/campaign/{id}"
-            .replaceAll("\\{" + "id" + "\\}", localVarApiClient.escapeString(id.toString()));
+        String localVarPath = "/api/campaign";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -212,15 +312,10 @@ public class CampaignApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiCampaignIdPostValidateBeforeCall(UUID id, Campaign campaign, final ApiCallback _callback) throws ApiException {
-        
-        // verify the required parameter 'id' is set
-        if (id == null) {
-            throw new ApiException("Missing the required parameter 'id' when calling apiCampaignIdPost(Async)");
-        }
+    private okhttp3.Call apiCampaignPostValidateBeforeCall(Campaign campaign, final ApiCallback _callback) throws ApiException {
         
 
-        okhttp3.Call localVarCall = apiCampaignIdPostCall(id, campaign, _callback);
+        okhttp3.Call localVarCall = apiCampaignPostCall(campaign, _callback);
         return localVarCall;
 
     }
@@ -228,7 +323,6 @@ public class CampaignApi {
     /**
      * 
      * 
-     * @param id  (required)
      * @param campaign  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -237,14 +331,13 @@ public class CampaignApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public void apiCampaignIdPost(UUID id, Campaign campaign) throws ApiException {
-        apiCampaignIdPostWithHttpInfo(id, campaign);
+    public void apiCampaignPost(Campaign campaign) throws ApiException {
+        apiCampaignPostWithHttpInfo(campaign);
     }
 
     /**
      * 
      * 
-     * @param id  (required)
      * @param campaign  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -254,15 +347,14 @@ public class CampaignApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> apiCampaignIdPostWithHttpInfo(UUID id, Campaign campaign) throws ApiException {
-        okhttp3.Call localVarCall = apiCampaignIdPostValidateBeforeCall(id, campaign, null);
+    public ApiResponse<Void> apiCampaignPostWithHttpInfo(Campaign campaign) throws ApiException {
+        okhttp3.Call localVarCall = apiCampaignPostValidateBeforeCall(campaign, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      *  (asynchronously)
      * 
-     * @param id  (required)
      * @param campaign  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -273,15 +365,14 @@ public class CampaignApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiCampaignIdPostAsync(UUID id, Campaign campaign, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call apiCampaignPostAsync(Campaign campaign, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiCampaignIdPostValidateBeforeCall(id, campaign, _callback);
+        okhttp3.Call localVarCall = apiCampaignPostValidateBeforeCall(campaign, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
-     * Build call for apiCampaignIdPut
-     * @param id  (required)
+     * Build call for apiCampaignPut
      * @param campaign  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -292,12 +383,11 @@ public class CampaignApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiCampaignIdPutCall(UUID id, Campaign campaign, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiCampaignPutCall(Campaign campaign, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = campaign;
 
         // create path and map variables
-        String localVarPath = "/api/campaign/{id}"
-            .replaceAll("\\{" + "id" + "\\}", localVarApiClient.escapeString(id.toString()));
+        String localVarPath = "/api/campaign";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -324,15 +414,10 @@ public class CampaignApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiCampaignIdPutValidateBeforeCall(UUID id, Campaign campaign, final ApiCallback _callback) throws ApiException {
-        
-        // verify the required parameter 'id' is set
-        if (id == null) {
-            throw new ApiException("Missing the required parameter 'id' when calling apiCampaignIdPut(Async)");
-        }
+    private okhttp3.Call apiCampaignPutValidateBeforeCall(Campaign campaign, final ApiCallback _callback) throws ApiException {
         
 
-        okhttp3.Call localVarCall = apiCampaignIdPutCall(id, campaign, _callback);
+        okhttp3.Call localVarCall = apiCampaignPutCall(campaign, _callback);
         return localVarCall;
 
     }
@@ -340,7 +425,6 @@ public class CampaignApi {
     /**
      * 
      * 
-     * @param id  (required)
      * @param campaign  (optional)
      * @return Campaign
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -350,15 +434,14 @@ public class CampaignApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public Campaign apiCampaignIdPut(UUID id, Campaign campaign) throws ApiException {
-        ApiResponse<Campaign> localVarResp = apiCampaignIdPutWithHttpInfo(id, campaign);
+    public Campaign apiCampaignPut(Campaign campaign) throws ApiException {
+        ApiResponse<Campaign> localVarResp = apiCampaignPutWithHttpInfo(campaign);
         return localVarResp.getData();
     }
 
     /**
      * 
      * 
-     * @param id  (required)
      * @param campaign  (optional)
      * @return ApiResponse&lt;Campaign&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -368,8 +451,8 @@ public class CampaignApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Campaign> apiCampaignIdPutWithHttpInfo(UUID id, Campaign campaign) throws ApiException {
-        okhttp3.Call localVarCall = apiCampaignIdPutValidateBeforeCall(id, campaign, null);
+    public ApiResponse<Campaign> apiCampaignPutWithHttpInfo(Campaign campaign) throws ApiException {
+        okhttp3.Call localVarCall = apiCampaignPutValidateBeforeCall(campaign, null);
         Type localVarReturnType = new TypeToken<Campaign>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -377,7 +460,6 @@ public class CampaignApi {
     /**
      *  (asynchronously)
      * 
-     * @param id  (required)
      * @param campaign  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -388,9 +470,9 @@ public class CampaignApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiCampaignIdPutAsync(UUID id, Campaign campaign, final ApiCallback<Campaign> _callback) throws ApiException {
+    public okhttp3.Call apiCampaignPutAsync(Campaign campaign, final ApiCallback<Campaign> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiCampaignIdPutValidateBeforeCall(id, campaign, _callback);
+        okhttp3.Call localVarCall = apiCampaignPutValidateBeforeCall(campaign, _callback);
         Type localVarReturnType = new TypeToken<Campaign>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

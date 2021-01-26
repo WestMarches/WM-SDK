@@ -32,16 +32,21 @@ paths:
       tags:
       - Campaign
       x-accepts: application/json
+  /api/campaign:
+    get:
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Campaign'
+                type: array
+          description: Success
+      tags:
+      - Campaign
+      x-accepts: application/json
     post:
-      parameters:
-      - explode: false
-        in: path
-        name: id
-        required: true
-        schema:
-          format: uuid
-          type: string
-        style: simple
       requestBody:
         content:
           application/json:
@@ -55,15 +60,6 @@ paths:
       x-contentType: application/json
       x-accepts: application/json
     put:
-      parameters:
-      - explode: false
-        in: path
-        name: id
-        required: true
-        schema:
-          format: uuid
-          type: string
-        style: simple
       requestBody:
         content:
           application/json:
@@ -80,7 +76,7 @@ paths:
       - Campaign
       x-contentType: application/json
       x-accepts: application/json
-  /api/character/{id}:
+  /api/character/dndBeyond/{id}:
     get:
       parameters:
       - explode: false
@@ -101,17 +97,25 @@ paths:
       tags:
       - Character
       x-accepts: application/json
-  /api/character/my/{id}:
-    get:
+  /api/character/dndBeyond:
+    post:
       parameters:
-      - explode: false
-        in: path
+      - explode: true
+        in: query
         name: id
-        required: true
+        required: false
         schema:
-          format: uuid
-          type: string
-        style: simple
+          format: int64
+          type: integer
+        style: form
+      responses:
+        "200":
+          description: Success
+      tags:
+      - Character
+      x-accepts: application/json
+  /api/character/my:
+    get:
       responses:
         "200":
           content:
@@ -168,29 +172,14 @@ paths:
       x-accepts: application/json
   /api/registration:
     post:
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/RegistrationRequest'
       responses:
         "200":
           description: Success
       tags:
       - Registration
-      x-contentType: application/json
       x-accepts: application/json
-  /api/user/{id}:
+  /api/user:
     get:
-      parameters:
-      - explode: false
-        in: path
-        name: id
-        required: true
-        schema:
-          format: uuid
-          type: string
-        style: simple
       responses:
         "200":
           content:
@@ -202,15 +191,6 @@ paths:
       - User
       x-accepts: application/json
     put:
-      parameters:
-      - explode: false
-        in: path
-        name: id
-        required: true
-        schema:
-          format: uuid
-          type: string
-        style: simple
       requestBody:
         content:
           application/json:
@@ -327,7 +307,7 @@ components:
       example:
         ddBeyond: 4
         alive: true
-        level: 6
+        level: 0
         roles:
         - roleName: roleName
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -335,6 +315,7 @@ components:
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         format: format
         experienceCap: 5
+        inspiration: 6
         readyDate: 2000-01-23T04:56:07.000+00:00
         experience: 5
         inventory:
@@ -374,6 +355,9 @@ components:
         level:
           format: int32
           type: integer
+        inspiration:
+          format: int32
+          type: integer
         currency:
           format: int32
           type: integer
@@ -409,9 +393,25 @@ components:
       - alive
       - currency
       - experience
+      - inspiration
       - level
       - name
       - readyDate
+      type: object
+    UserCredentials:
+      additionalProperties: false
+      example:
+        oAuthId: oAuthId
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        id:
+          format: uuid
+          type: string
+        oAuthId:
+          nullable: true
+          type: string
+        user:
+          $ref: '#/components/schemas/User'
       type: object
     User:
       additionalProperties: false
@@ -419,7 +419,7 @@ components:
         characters:
         - ddBeyond: 4
           alive: true
-          level: 6
+          level: 0
           roles:
           - roleName: roleName
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -427,6 +427,7 @@ components:
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           format: format
           experienceCap: 5
+          inspiration: 6
           readyDate: 2000-01-23T04:56:07.000+00:00
           experience: 5
           inventory:
@@ -455,7 +456,7 @@ components:
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         - ddBeyond: 4
           alive: true
-          level: 6
+          level: 0
           roles:
           - roleName: roleName
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -463,6 +464,7 @@ components:
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           format: format
           experienceCap: 5
+          inspiration: 6
           readyDate: 2000-01-23T04:56:07.000+00:00
           experience: 5
           inventory:
@@ -489,11 +491,15 @@ components:
           name: name
           currency: 1
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        discordId: 0
         dateCreated: 2000-01-23T04:56:07.000+00:00
         campaignsOwned:
         - null
         - null
+        credentials:
+        - oAuthId: oAuthId
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - oAuthId: oAuthId
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         givenName: givenName
         familyName: familyName
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -501,9 +507,6 @@ components:
         id:
           format: uuid
           type: string
-        discordId:
-          format: int64
-          type: integer
         givenName:
           nullable: true
           type: string
@@ -516,6 +519,11 @@ components:
         characters:
           items:
             $ref: '#/components/schemas/Character'
+          nullable: true
+          type: array
+        credentials:
+          items:
+            $ref: '#/components/schemas/UserCredentials'
           nullable: true
           type: array
         campaignsOwned:
@@ -560,7 +568,7 @@ components:
           characters:
           - ddBeyond: 4
             alive: true
-            level: 6
+            level: 0
             roles:
             - roleName: roleName
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -568,6 +576,7 @@ components:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             format: format
             experienceCap: 5
+            inspiration: 6
             readyDate: 2000-01-23T04:56:07.000+00:00
             experience: 5
             inventory:
@@ -596,7 +605,7 @@ components:
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - ddBeyond: 4
             alive: true
-            level: 6
+            level: 0
             roles:
             - roleName: roleName
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -604,6 +613,7 @@ components:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             format: format
             experienceCap: 5
+            inspiration: 6
             readyDate: 2000-01-23T04:56:07.000+00:00
             experience: 5
             inventory:
@@ -630,11 +640,15 @@ components:
             name: name
             currency: 1
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          discordId: 0
           dateCreated: 2000-01-23T04:56:07.000+00:00
           campaignsOwned:
           - null
           - null
+          credentials:
+          - oAuthId: oAuthId
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - oAuthId: oAuthId
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           givenName: givenName
           familyName: familyName
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -663,32 +677,6 @@ components:
       type: object
     IRequest:
       additionalProperties: false
-      type: object
-    RegistrationRequest:
-      additionalProperties: false
-      example:
-        ddBeyondIds:
-        - 6
-        - 6
-        discordId: 0
-        givenName: givenName
-        familyName: familyName
-      properties:
-        discordId:
-          format: int64
-          type: integer
-        givenName:
-          nullable: true
-          type: string
-        familyName:
-          nullable: true
-          type: string
-        ddBeyondIds:
-          items:
-            format: int64
-            type: integer
-          nullable: true
-          type: array
       type: object
   securitySchemes:
     Bearer:

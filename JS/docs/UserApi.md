@@ -4,14 +4,14 @@ All URIs are relative to *http://localhost:5000*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**apiUserIdGet**](UserApi.md#apiUserIdGet) | **GET** /api/user/{id} | 
-[**apiUserIdPut**](UserApi.md#apiUserIdPut) | **PUT** /api/user/{id} | 
+[**apiUserGet**](UserApi.md#apiUserGet) | **GET** /api/user | 
+[**apiUserPut**](UserApi.md#apiUserPut) | **PUT** /api/user | 
 
 
 
-## apiUserIdGet
+## apiUserGet
 
-> User apiUserIdGet(id)
+> User apiUserGet()
 
 
 
@@ -27,8 +27,7 @@ Bearer.apiKey = 'YOUR API KEY';
 //Bearer.apiKeyPrefix = 'Token';
 
 let apiInstance = new WestMarchesApi.UserApi();
-let id = null; // String | 
-apiInstance.apiUserIdGet(id, (error, data, response) => {
+apiInstance.apiUserGet((error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -39,10 +38,7 @@ apiInstance.apiUserIdGet(id, (error, data, response) => {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | [**String**](.md)|  | 
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -58,9 +54,9 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
-## apiUserIdPut
+## apiUserPut
 
-> User apiUserIdPut(id, opts)
+> User apiUserPut(opts)
 
 
 
@@ -76,11 +72,10 @@ Bearer.apiKey = 'YOUR API KEY';
 //Bearer.apiKeyPrefix = 'Token';
 
 let apiInstance = new WestMarchesApi.UserApi();
-let id = null; // String | 
 let opts = {
   'user': new WestMarchesApi.User() // User | 
 };
-apiInstance.apiUserIdPut(id, opts, (error, data, response) => {
+apiInstance.apiUserPut(opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -94,7 +89,6 @@ apiInstance.apiUserIdPut(id, opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**String**](.md)|  | 
  **user** | [**User**](User.md)|  | [optional] 
 
 ### Return type

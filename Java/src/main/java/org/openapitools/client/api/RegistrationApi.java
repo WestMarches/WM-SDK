@@ -27,7 +27,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import org.openapitools.client.model.RegistrationRequest;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -56,7 +55,6 @@ public class RegistrationApi {
 
     /**
      * Build call for apiRegistrationPost
-     * @param registrationRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -66,8 +64,8 @@ public class RegistrationApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiRegistrationPostCall(RegistrationRequest registrationRequest, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = registrationRequest;
+    public okhttp3.Call apiRegistrationPostCall(final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/api/registration";
@@ -87,7 +85,7 @@ public class RegistrationApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/json"
+            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -97,10 +95,10 @@ public class RegistrationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiRegistrationPostValidateBeforeCall(RegistrationRequest registrationRequest, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call apiRegistrationPostValidateBeforeCall(final ApiCallback _callback) throws ApiException {
         
 
-        okhttp3.Call localVarCall = apiRegistrationPostCall(registrationRequest, _callback);
+        okhttp3.Call localVarCall = apiRegistrationPostCall(_callback);
         return localVarCall;
 
     }
@@ -108,7 +106,6 @@ public class RegistrationApi {
     /**
      * 
      * 
-     * @param registrationRequest  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -116,14 +113,13 @@ public class RegistrationApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public void apiRegistrationPost(RegistrationRequest registrationRequest) throws ApiException {
-        apiRegistrationPostWithHttpInfo(registrationRequest);
+    public void apiRegistrationPost() throws ApiException {
+        apiRegistrationPostWithHttpInfo();
     }
 
     /**
      * 
      * 
-     * @param registrationRequest  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -132,15 +128,14 @@ public class RegistrationApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> apiRegistrationPostWithHttpInfo(RegistrationRequest registrationRequest) throws ApiException {
-        okhttp3.Call localVarCall = apiRegistrationPostValidateBeforeCall(registrationRequest, null);
+    public ApiResponse<Void> apiRegistrationPostWithHttpInfo() throws ApiException {
+        okhttp3.Call localVarCall = apiRegistrationPostValidateBeforeCall(null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      *  (asynchronously)
      * 
-     * @param registrationRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -150,9 +145,9 @@ public class RegistrationApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiRegistrationPostAsync(RegistrationRequest registrationRequest, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call apiRegistrationPostAsync(final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiRegistrationPostValidateBeforeCall(registrationRequest, _callback);
+        okhttp3.Call localVarCall = apiRegistrationPostValidateBeforeCall(_callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }

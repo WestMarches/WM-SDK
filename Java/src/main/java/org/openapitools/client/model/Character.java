@@ -35,7 +35,7 @@ import org.threeten.bp.OffsetDateTime;
 /**
  * Character
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-01-25T17:55:47.969+10:30[Australia/Adelaide]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-01-26T11:34:06.333+10:30[Australia/Adelaide]")
 public class Character {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -56,6 +56,10 @@ public class Character {
   public static final String SERIALIZED_NAME_LEVEL = "level";
   @SerializedName(SERIALIZED_NAME_LEVEL)
   private Integer level;
+
+  public static final String SERIALIZED_NAME_INSPIRATION = "inspiration";
+  @SerializedName(SERIALIZED_NAME_INSPIRATION)
+  private Integer inspiration;
 
   public static final String SERIALIZED_NAME_CURRENCY = "currency";
   @SerializedName(SERIALIZED_NAME_CURRENCY)
@@ -204,6 +208,28 @@ public class Character {
 
   public void setLevel(Integer level) {
     this.level = level;
+  }
+
+
+  public Character inspiration(Integer inspiration) {
+    
+    this.inspiration = inspiration;
+    return this;
+  }
+
+   /**
+   * Get inspiration
+   * @return inspiration
+  **/
+  @ApiModelProperty(required = true, value = "")
+
+  public Integer getInspiration() {
+    return inspiration;
+  }
+
+
+  public void setInspiration(Integer inspiration) {
+    this.inspiration = inspiration;
   }
 
 
@@ -431,6 +457,7 @@ public class Character {
         Objects.equals(this.server, character.server) &&
         Objects.equals(this.name, character.name) &&
         Objects.equals(this.level, character.level) &&
+        Objects.equals(this.inspiration, character.inspiration) &&
         Objects.equals(this.currency, character.currency) &&
         Objects.equals(this.format, character.format) &&
         Objects.equals(this.experience, character.experience) &&
@@ -444,7 +471,7 @@ public class Character {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, owner, server, name, level, currency, format, experience, experienceCap, alive, inventory, roles, readyDate, ddBeyond);
+    return Objects.hash(id, owner, server, name, level, inspiration, currency, format, experience, experienceCap, alive, inventory, roles, readyDate, ddBeyond);
   }
 
 
@@ -457,6 +484,7 @@ public class Character {
     sb.append("    server: ").append(toIndentedString(server)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    level: ").append(toIndentedString(level)).append("\n");
+    sb.append("    inspiration: ").append(toIndentedString(inspiration)).append("\n");
     sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
     sb.append("    format: ").append(toIndentedString(format)).append("\n");
     sb.append("    experience: ").append(toIndentedString(experience)).append("\n");

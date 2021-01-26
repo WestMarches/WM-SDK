@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **Server** | [**Campaign**](Campaign.md) |  | [optional] 
 **Name** | **string** |  | 
 **Level** | **int** |  | 
+**Inspiration** | **int** |  | 
 **Currency** | **int** |  | 
 **Format** | **string** |  | [optional] [readonly] 
 **Experience** | **int** |  | 

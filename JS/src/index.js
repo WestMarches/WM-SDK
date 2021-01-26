@@ -19,9 +19,9 @@ import Character from './model/Character';
 import GameSystem from './model/GameSystem';
 import Guild from './model/Guild';
 import Item from './model/Item';
-import RegistrationRequest from './model/RegistrationRequest';
 import Stock from './model/Stock';
 import User from './model/User';
+import UserCredentials from './model/UserCredentials';
 import UserRoles from './model/UserRoles';
 import CampaignApi from './api/CampaignApi';
 import CharacterApi from './api/CharacterApi';
@@ -105,12 +105,6 @@ export {
     Item,
 
     /**
-     * The RegistrationRequest model constructor.
-     * @property {module:model/RegistrationRequest}
-     */
-    RegistrationRequest,
-
-    /**
      * The Stock model constructor.
      * @property {module:model/Stock}
      */
@@ -121,6 +115,12 @@ export {
      * @property {module:model/User}
      */
     User,
+
+    /**
+     * The UserCredentials model constructor.
+     * @property {module:model/UserCredentials}
+     */
+    UserCredentials,
 
     /**
      * The UserRoles model constructor.
