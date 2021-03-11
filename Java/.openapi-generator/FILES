@@ -60,4 +60,3 @@ src/main/java/org/openapitools/client/model/Stock.java
 src/main/java/org/openapitools/client/model/User.java
 src/main/java/org/openapitools/client/model/UserCredentials.java
 src/main/java/org/openapitools/client/model/UserRoles.java
-src/test/java/org/openapitools/client/model/UserCredentialsTest.java

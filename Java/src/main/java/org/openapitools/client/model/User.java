@@ -34,7 +34,7 @@ import org.threeten.bp.OffsetDateTime;
 /**
  * User
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-01-26T11:34:06.333+10:30[Australia/Adelaide]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-03-11T20:18:01.526+10:30[Australia/Adelaide]")
 public class User {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)

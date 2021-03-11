@@ -37,4 +37,3 @@ src/model/Stock.js
 src/model/User.js
 src/model/UserCredentials.js
 src/model/UserRoles.js
-test/model/UserCredentials.spec.js
