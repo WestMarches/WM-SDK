@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Python",
+    "\\Python\\openapi_client"
   ],
-  "SelectedNode": "\\Org.OpenAPITools.sln",
+  "SelectedNode": "\\generate.sh",
   "PreviewInSolutionExplorer": false
 }

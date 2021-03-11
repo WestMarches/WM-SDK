@@ -1,3 +1,5 @@
+# coding: utf-8
+
 """
     WestMarches API
 
@@ -8,20 +10,14 @@
 """
 
 
-import sys
+from __future__ import absolute_import
+
 import unittest
+import datetime
 
 import openapi_client
-from openapi_client.model.campaign import Campaign
-from openapi_client.model.stock import Stock
-from openapi_client.model.user import User
-from openapi_client.model.user_roles import UserRoles
-globals()['Campaign'] = Campaign
-globals()['Stock'] = Stock
-globals()['User'] = User
-globals()['UserRoles'] = UserRoles
-from openapi_client.model.character import Character
-
+from openapi_client.models.character import Character  # noqa: E501
+from openapi_client.rest import ApiException
 
 class TestCharacter(unittest.TestCase):
     """Character unit test stubs"""
@@ -32,12 +28,366 @@ class TestCharacter(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def make_instance(self, include_optional):
+        """Test Character
+            include_option is a boolean, when False only required
+            params are included, when True both required and
+            optional params are included """
+        # model = openapi_client.models.character.Character()  # noqa: E501
+        if include_optional :
+            return Character(
+                id = '', 
+                owner = openapi_client.models.user.User(
+                    id = '', 
+                    given_name = '', 
+                    family_name = '', 
+                    date_created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                    characters = [
+                        openapi_client.models.character.Character(
+                            id = '', 
+                            server = openapi_client.models.campaign.Campaign(
+                                id = '', 
+                                game_system = 0, 
+                                title = '', 
+                                status = 0, 
+                                guild = openapi_client.models.guild.Guild(
+                                    campaign = openapi_client.models.campaign.Campaign(
+                                        id = '', 
+                                        title = '', ), 
+                                    discord_id = 56, 
+                                    guild_name = '', 
+                                    store_category_name = '', ), ), 
+                            name = '', 
+                            level = 56, 
+                            inspiration = 56, 
+                            currency = 56, 
+                            format = '', 
+                            experience = 56, 
+                            experience_cap = 56, 
+                            alive = True, 
+                            inventory = [
+                                openapi_client.models.stock.Stock(
+                                    id = '', 
+                                    discount_percentage = 1.337, 
+                                    discount_fixed = 56, 
+                                    unlimited = True, 
+                                    amount = 56, 
+                                    item = openapi_client.models.item.Item(
+                                        id = '', 
+                                        home_brew_origin = openapi_client.models.campaign.Campaign(
+                                            id = '', 
+                                            title = '', ), 
+                                        item_name = '', 
+                                        currency_value = 56, 
+                                        game_system = 0, ), 
+                                    price = 56, )
+                                ], 
+                            roles = [
+                                openapi_client.models.user_roles.UserRoles(
+                                    id = '', 
+                                    user = openapi_client.models.user.User(
+                                        id = '', 
+                                        given_name = '', 
+                                        family_name = '', 
+                                        date_created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                                        credentials = [
+                                            openapi_client.models.user_credentials.UserCredentials(
+                                                id = '', 
+                                                o_auth_id = '', )
+                                            ], 
+                                        campaigns_owned = [
+                                            openapi_client.models.campaign.Campaign(
+                                                id = '', 
+                                                title = '', )
+                                            ], ), 
+                                    role_name = '', )
+                                ], 
+                            ready_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                            dd_beyond = 56, )
+                        ], 
+                    credentials = [
+                        openapi_client.models.user_credentials.UserCredentials(
+                            id = '', 
+                            o_auth_id = '', )
+                        ], 
+                    campaigns_owned = [
+                        openapi_client.models.campaign.Campaign(
+                            id = '', 
+                            title = '', )
+                        ], ), 
+                server = openapi_client.models.campaign.Campaign(
+                    id = '', 
+                    game_system = 0, 
+                    title = '', 
+                    owner = openapi_client.models.user.User(
+                        id = '', 
+                        given_name = '', 
+                        family_name = '', 
+                        date_created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        characters = [
+                            openapi_client.models.character.Character(
+                                id = '', 
+                                name = '', 
+                                level = 56, 
+                                inspiration = 56, 
+                                currency = 56, 
+                                format = '', 
+                                experience = 56, 
+                                experience_cap = 56, 
+                                alive = True, 
+                                inventory = [
+                                    openapi_client.models.stock.Stock(
+                                        id = '', 
+                                        discount_percentage = 1.337, 
+                                        discount_fixed = 56, 
+                                        unlimited = True, 
+                                        amount = 56, 
+                                        item = openapi_client.models.item.Item(
+                                            id = '', 
+                                            home_brew_origin = openapi_client.models.campaign.Campaign(
+                                                id = '', 
+                                                title = '', 
+                                                status = 0, 
+                                                guild = openapi_client.models.guild.Guild(
+                                                    campaign = openapi_client.models.campaign.Campaign(
+                                                        id = '', 
+                                                        title = '', ), 
+                                                    discord_id = 56, 
+                                                    guild_name = '', 
+                                                    store_category_name = '', ), ), 
+                                            item_name = '', 
+                                            currency_value = 56, 
+                                            game_system = 0, ), 
+                                        price = 56, )
+                                    ], 
+                                roles = [
+                                    openapi_client.models.user_roles.UserRoles(
+                                        id = '', 
+                                        user = openapi_client.models.user.User(
+                                            id = '', 
+                                            given_name = '', 
+                                            family_name = '', 
+                                            date_created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                                            credentials = [
+                                                openapi_client.models.user_credentials.UserCredentials(
+                                                    id = '', 
+                                                    o_auth_id = '', )
+                                                ], 
+                                            campaigns_owned = [
+                                                openapi_client.models.campaign.Campaign(
+                                                    id = '', 
+                                                    title = '', )
+                                                ], ), 
+                                        role_name = '', )
+                                    ], 
+                                ready_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                                dd_beyond = 56, )
+                            ], 
+                        credentials = [
+                            openapi_client.models.user_credentials.UserCredentials(
+                                id = '', 
+                                o_auth_id = '', )
+                            ], 
+                        campaigns_owned = [
+                            openapi_client.models.campaign.Campaign(
+                                id = '', 
+                                title = '', )
+                            ], ), 
+                    status = 0, 
+                    guild = openapi_client.models.guild.Guild(
+                        discord_id = 56, 
+                        guild_name = '', 
+                        store_category_name = '', ), ), 
+                name = '', 
+                level = 56, 
+                inspiration = 56, 
+                currency = 56, 
+                format = '', 
+                experience = 56, 
+                experience_cap = 56, 
+                alive = True, 
+                inventory = [
+                    openapi_client.models.stock.Stock(
+                        id = '', 
+                        discount_percentage = 1.337, 
+                        discount_fixed = 56, 
+                        unlimited = True, 
+                        amount = 56, 
+                        item = openapi_client.models.item.Item(
+                            id = '', 
+                            home_brew_origin = openapi_client.models.campaign.Campaign(
+                                id = '', 
+                                game_system = 0, 
+                                title = '', 
+                                owner = openapi_client.models.user.User(
+                                    id = '', 
+                                    given_name = '', 
+                                    family_name = '', 
+                                    date_created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                                    characters = [
+                                        openapi_client.models.character.Character(
+                                            id = '', 
+                                            server = openapi_client.models.campaign.Campaign(
+                                                id = '', 
+                                                title = '', 
+                                                status = 0, 
+                                                guild = openapi_client.models.guild.Guild(
+                                                    campaign = openapi_client.models.campaign.Campaign(
+                                                        id = '', 
+                                                        title = '', ), 
+                                                    discord_id = 56, 
+                                                    guild_name = '', 
+                                                    store_category_name = '', ), ), 
+                                            name = '', 
+                                            level = 56, 
+                                            inspiration = 56, 
+                                            currency = 56, 
+                                            format = '', 
+                                            experience = 56, 
+                                            experience_cap = 56, 
+                                            alive = True, 
+                                            roles = [
+                                                openapi_client.models.user_roles.UserRoles(
+                                                    id = '', 
+                                                    user = openapi_client.models.user.User(
+                                                        id = '', 
+                                                        given_name = '', 
+                                                        family_name = '', 
+                                                        date_created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                                                        credentials = [
+                                                            openapi_client.models.user_credentials.UserCredentials(
+                                                                id = '', 
+                                                                o_auth_id = '', )
+                                                            ], 
+                                                        campaigns_owned = [
+                                                            openapi_client.models.campaign.Campaign(
+                                                                id = '', 
+                                                                title = '', )
+                                                            ], ), 
+                                                    role_name = '', )
+                                                ], 
+                                            ready_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                                            dd_beyond = 56, )
+                                        ], 
+                                    credentials = [
+                                        openapi_client.models.user_credentials.UserCredentials(
+                                            id = '', 
+                                            o_auth_id = '', )
+                                        ], 
+                                    campaigns_owned = [
+                                        openapi_client.models.campaign.Campaign(
+                                            id = '', 
+                                            title = '', )
+                                        ], ), 
+                                status = 0, 
+                                guild = openapi_client.models.guild.Guild(
+                                    discord_id = 56, 
+                                    guild_name = '', 
+                                    store_category_name = '', ), ), 
+                            item_name = '', 
+                            currency_value = 56, 
+                            game_system = 0, ), 
+                        price = 56, )
+                    ], 
+                roles = [
+                    openapi_client.models.user_roles.UserRoles(
+                        id = '', 
+                        user = openapi_client.models.user.User(
+                            id = '', 
+                            given_name = '', 
+                            family_name = '', 
+                            date_created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                            characters = [
+                                openapi_client.models.character.Character(
+                                    id = '', 
+                                    owner = openapi_client.models.user.User(
+                                        id = '', 
+                                        given_name = '', 
+                                        family_name = '', 
+                                        date_created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                                        credentials = [
+                                            openapi_client.models.user_credentials.UserCredentials(
+                                                id = '', 
+                                                o_auth_id = '', )
+                                            ], 
+                                        campaigns_owned = [
+                                            openapi_client.models.campaign.Campaign(
+                                                id = '', 
+                                                game_system = 0, 
+                                                title = '', 
+                                                status = 0, 
+                                                guild = openapi_client.models.guild.Guild(
+                                                    campaign = openapi_client.models.campaign.Campaign(
+                                                        id = '', 
+                                                        title = '', ), 
+                                                    discord_id = 56, 
+                                                    guild_name = '', 
+                                                    store_category_name = '', ), )
+                                            ], ), 
+                                    server = openapi_client.models.campaign.Campaign(
+                                        id = '', 
+                                        title = '', ), 
+                                    name = '', 
+                                    level = 56, 
+                                    inspiration = 56, 
+                                    currency = 56, 
+                                    format = '', 
+                                    experience = 56, 
+                                    experience_cap = 56, 
+                                    alive = True, 
+                                    inventory = [
+                                        openapi_client.models.stock.Stock(
+                                            id = '', 
+                                            discount_percentage = 1.337, 
+                                            discount_fixed = 56, 
+                                            unlimited = True, 
+                                            amount = 56, 
+                                            item = openapi_client.models.item.Item(
+                                                id = '', 
+                                                home_brew_origin = openapi_client.models.campaign.Campaign(
+                                                    id = '', 
+                                                    title = '', ), 
+                                                item_name = '', 
+                                                currency_value = 56, 
+                                                game_system = 0, ), 
+                                            price = 56, )
+                                        ], 
+                                    ready_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                                    dd_beyond = 56, )
+                                ], 
+                            credentials = [
+                                openapi_client.models.user_credentials.UserCredentials(
+                                    id = '', 
+                                    o_auth_id = '', )
+                                ], 
+                            campaigns_owned = [
+                                openapi_client.models.campaign.Campaign(
+                                    id = '', 
+                                    title = '', )
+                                ], ), 
+                        campaign = openapi_client.models.campaign.Campaign(
+                            id = '', 
+                            title = '', ), 
+                        role_name = '', )
+                    ], 
+                ready_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                dd_beyond = 56
+            )
+        else :
+            return Character(
+                name = '',
+                level = 56,
+                inspiration = 56,
+                currency = 56,
+                experience = 56,
+                alive = True,
+                ready_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
+        )
+
     def testCharacter(self):
         """Test Character"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = Character()  # noqa: E501
-        pass
-
+        inst_req_only = self.make_instance(include_optional=False)
+        inst_req_and_optional = self.make_instance(include_optional=True)
 
 if __name__ == '__main__':
     unittest.main()

@@ -3,8 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**discount_percentage** | **float** |  | 
 **id** | **str** |  | [optional] 
+**discount_percentage** | **float** |  | 
 **discount_fixed** | **int** |  | [optional] 
 **unlimited** | **bool** |  | [optional] 
 **amount** | **int** |  | [optional] 
